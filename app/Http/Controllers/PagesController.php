@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\shop;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -25,6 +27,13 @@ class PagesController extends Controller
     }
 
     public function shop(){
-        return view('pages.shop');
+        $items = shop::all();
+        /* $items = shop::find($id); */
+        return view('pages.shop')->with('items',$items);
+
+    }
+
+    public function checkout(){
+        return view('pages.checkout');
     }
 }

@@ -21,6 +21,8 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/shop', 'PagesController@shop');
 
+Route::get('/checkout', 'PagesController@checkout');
+
 
 /* Route::get('/', function () { */
 /*     return view('welcome'); */

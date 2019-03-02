@@ -1,0 +1,1 @@
+insert into shops (name,image,price,description) values ('vanila',LOAD_FILE('/DriveE/Pictures/Pic/201px-ShaoYuWei.jpg'),100,'this is the description');
