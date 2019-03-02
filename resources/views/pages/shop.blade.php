@@ -70,8 +70,8 @@
                   <p class="card-text">{{$item_desc}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="{{route('checkout')}}">Buy</a></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     </div>
                   </div>
                 </div>

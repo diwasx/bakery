@@ -21,7 +21,7 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/shop', 'PagesController@shop');
 
-Route::get('/checkout', 'PagesController@checkout');
+Route::get('/checkout', 'PagesController@checkout')->name('checkout');
 
 
 /* Route::get('/', function () { */
