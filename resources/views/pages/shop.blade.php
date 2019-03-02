@@ -59,7 +59,7 @@
                         $item_name=$item->name;
                         $item_id=$item->id;
                         $item_desc=$item->description;
-                        $src = 'images/'.$item_id.'.jpg';
+                        $src = 'img/'.$item_id.'.jpg';
                         $item_image = $item->image;
                     ?>
                     <img class="card-img-top" src="{{asset($src) }}" alt={{$item_name}}/>
