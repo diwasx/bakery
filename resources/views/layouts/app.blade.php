@@ -92,6 +92,7 @@
             </div>
         </div>
     </nav>
+    @include('inc.messages')
     @yield('content')
 </body>
 </html>

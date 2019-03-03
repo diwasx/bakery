@@ -21,14 +21,11 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/shop', 'PagesController@shop');
 
-Route::get('/checkout', 'PagesController@checkout')->name('checkout');
+/* Both method works */
+Route::get('/checkout/{id}', 'PagesController@checkout');
+/* Route::get('/checkout/{id}', ['uses' =>'PagesController@checkout']); */
 
-
-/* Route::get('/', function () { */
-/*     return view('welcome'); */
-/* }); */
-
-
+Route::get('/store/{id}', 'PagesController@store');
 
 Auth::routes();
 
