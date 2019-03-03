@@ -21,40 +21,69 @@
 
           {{-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> --}}
 
-          <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Cake id</th>
-                  <th>First Name</th>
-                  <th>Second Name</th>
-                  <th>Phone no.</th>
-                  <th>Email</th>
-                  <th>Pickup Type</th>
-                  <th>Address</th>
-                  <th>Time of order</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($order as $item)
-                <tr>
-                  <td>{{$item->id_order}} </td>
-                  <td>{{$item->id_cake}} </td>
-                  <td>{{$item->fname}} </td>
-                  <td>{{$item->lname}} </td>
-                  <td>{{$item->phone}} </td>
-                  <td>{{$item->email}} </td>
-                  <td>{{$item->pickupType}} </td>
-                  <td>{{$item->address}} </td>
-                  <td>{{$item->created_at}} </td>
-                </tr>
+          {{-- Data in table form --}}
+          {{-- <div class="table-responsive"> --}}
+            {{-- <table class="table table-striped table-sm"> --}}
+            {{--   <thead> --}}
+            {{--     <tr> --}}
+            {{--       <th>#</th> --}}
+            {{--       <th>Name</th> --}}
+            {{--       <th>Price</th> --}}
+            {{--       <th>Description</th> --}}
+            {{--       <th>Time of order</th> --}}
+            {{--     </tr> --}}
+            {{--   </thead> --}}
+            {{--   <tbody> --}}
+            {{--     @foreach($shop as $item) --}}
+            {{--     <tr> --}}
+            {{--       <td>{{$item->id}} </td> --}}
+            {{--       <td>{{$item->name}} </td> --}}
+            {{--       <td>{{$item->price}} </td> --}}
+            {{--       <td>{{$item->description}} </td> --}}
+            {{--       <td>{{$item->created_at}} </td> --}}
+            {{--     </tr> --}}
 
+            {{--     @endforeach --}}
+            {{--   </tbody> --}}
+            {{-- </table> --}}
+          {{-- </div> --}}
+
+          {{-- Gallery part --}}
+            {{-- <!-- Header --> --}}
+            {{-- <header class="bg-primary text-center py-5 mb-4"> --}}
+            {{--   <div class="container"> --}}
+            {{--     <h1 class="font-weight-light text-white">Products</h1> --}}
+            {{--   </div> --}}
+            {{-- </header> --}}
+
+            <!-- Page Content -->
+            <div class="container">
+              <div class="row">
+
+                {{-- Item gallery --}}
+                @foreach($shop as $item)
+                    <?php 
+                        $src = 'img/'.$item->id.'.jpg';
+
+                    ?>
+                <!-- Team Member 1 -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card border-0 shadow">
+                    <img src="{{asset($src)}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">{{$item->name}}</h5>
+                        <div class="card-text text-black-50">{{$item->description}}</div>
+                    </div>
+                  </div>
+                </div>
                 @endforeach
-              </tbody>
-            </table>
-          </div>
+
+              </div>
+              <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
         </main>
       </div>
     </div>

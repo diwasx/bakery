@@ -29,4 +29,9 @@ Route::get('/store/{id}', 'PagesController@store');
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/order', 'AdminController@order')->name('order');
+Route::get('/admin/product', 'AdminController@product');
+Route::get('/admin/product/new', 'AdminController@new');
+
+/* file upload dont allow get method */
+Route::post('/admin/product/store', 'AdminController@store');
