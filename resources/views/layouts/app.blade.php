@@ -39,9 +39,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/location">Hours and Location</a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item">
                         <a class="nav-link" href="/menus">Menus</a>
