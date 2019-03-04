@@ -1,5 +1,9 @@
 @extends("layouts.app")
 @section("content")
+    <link href="{{ asset('/lightbox/ekko-lightbox.css') }}" rel="stylesheet">
+    <script src="{{ asset('/lightbox/ekko-lightbox.js') }}" defer></script>
+    <script src="{{ asset('/lightbox/ekko-lightbox.js.map') }}" defer></script>
+
 <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -61,17 +65,26 @@
                         $item_desc=$item->description;
                         $src = 'img/'.$item_id.'.jpg';
                         $item_image = $item->image;
+                        $src=asset($src)."?".time();
                     ?>
-                    <img class="card-img-top" src="{{asset($src) }}" alt={{$item_name}}/>
+                      <p class="text-center bg-info">{{$item_name}}</p>
+                    <img class="card-img-top" src={{$src}} alt={{$item_name}}/>
                     {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
                 <div class="card-body">
-                  {{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> --}}
                   <p class="card-text">{{$item_desc}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="{{route('checkout')}}">Buy</a></button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="/checkout/{{$item_id}}">Buy</a></button>
+                        {{-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> --}}
+                            {{-- <img id='viewimg' src="/img/3.jpg" alt="Smiley face" style="width:100%;max-width:300px;height:100%;max-height:300px"> --}}
+
+                        {{-- Lightbox library --}}
+                        <button type="button" class="btn btn-sm btn-outline-secondary"> <a href={{$src}} class="nav-link" data-toggle="lightbox"> 
+                            View 
+                        </a> </button>
+
+
                     </div>
                   </div>
                 </div>
@@ -103,4 +116,12 @@
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script>
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+    </script>
+
 @endsection

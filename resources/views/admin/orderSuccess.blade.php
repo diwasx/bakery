@@ -22,7 +22,7 @@
           {{-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> --}}
 
         <div class="container">
-              <h2>PENDING ORDER</h2>
+              <h2>SUCCESS ORDER</h2>
         </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -51,61 +51,6 @@
                   <td>{{$item->pickupType}} </td>
                   <td>{{$item->address}} </td>
                   <td>{{$item->created_at}} </td>
-
-                  <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                        Complete
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-
-                          <div class="modal-body">
-                            Are you sure want to move it to success table?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-success"><a href="/admin/order/success/{{$item->id_order}}" class="btn btn-success">Success Order</a></button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                    </td>
-
-                    <td>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
-                        Failed
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Are you sure want to move it to fail table?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger"><a href="/admin/order/fail/{{$item->id_order}}" class="btn btn-danger">Fail Order</a></button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </td>
                   {{-- <td><button type="button" class="btn btn-success"><a href="/admin/order/success/{{$item->id_order}}" class="btn btn-success">Complete</a></button></td> --}}
                   {{-- <td><button type="button" class="btn btn-danger"><a href="/admin/order/fail/{{$item->id_order}}" class="btn btn-danger">Failed</a></button></td> --}}
 
