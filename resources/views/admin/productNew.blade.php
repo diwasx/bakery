@@ -156,6 +156,7 @@ body {
             <div class="container">
               <div class="row">
                 <div class="container">
+                    <a href="/admin/product" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel</a>
                     <div class="row">
                       <div class="col-lg-10 col-xl-9 mx-auto">
                         <div class="card card-signin flex-row my-5">
