@@ -61,8 +61,9 @@
                         $item_desc=$item->description;
                         $src = 'img/'.$item_id.'.jpg';
                         $item_image = $item->image;
+                        $src=asset($src)."?".time();
                     ?>
-                    <img class="card-img-top" src="{{asset($src) }}" alt={{$item_name}}/>
+                    <img class="card-img-top" src={{$src}} alt={{$item_name}}/>
                     {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
                 <div class="card-body">
