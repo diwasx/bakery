@@ -46,3 +46,4 @@ Route::post('/admin/product/editStore', 'AdminController@editStore');
 /* route with varaible should be get */
 Route::get('/admin/product/edit/{id}', 'AdminController@edit');
 Route::get('/admin/product/delete/{id}', 'AdminController@delete');
+
