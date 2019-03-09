@@ -25,6 +25,19 @@
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
     <link href="{{ asset('dashboard.css') }}" rel="stylesheet">
 
+    <!-- Removing whitespace -->
+    <style> 
+    body{
+        padding-bottom: 0px;
+    }
+
+    footer{
+        postion: absolute;
+        background: scroll center url('/images/footer1.jpg');
+    }
+
+    </style>
+
 </head>
 <body>
     {{-- <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-dark"> --}}

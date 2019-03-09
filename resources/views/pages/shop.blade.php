@@ -4,25 +4,15 @@
     <script src="{{ asset('/lightbox/ekko-lightbox.js') }}" defer></script>
     <script src="{{ asset('/lightbox/ekko-lightbox.js.map') }}" defer></script>
 
-<!-- Removing whitespace -->
-    <style> 
-    body{
-        padding-bottom: 0px;
-    }
-
-    footer{
-        postion: absolute;
-    }
-
-    </style>
-
 <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">About</h4>
+              <h4 class="text-white">Quote</h4>
               <p class="text-muted">Baking cookies is comforting, and cookies are the sweetest little bit of comfort food. They are very bite-sized and personal.</p>
+              <p class="text-muted">Life is better with fresh baked cookies.</p>
+              <p class="text-muted">Baking may be regarded as a science, but it's the chemistry between the ingredients and the cook that gives desserts life. Baking is done out of love, to share with family and friends, to see them smile.</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contact</h4>
@@ -55,8 +45,8 @@
           <h1 class="jumbotron-heading text-light">Grg Bakery</h1>
           <p class="lead text-info">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
           <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            <a href="https://www.instagram.com/grgsbakery/" class="btn btn-primary my-2">Check out instagram for more</a>
+            {{-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> --}}
           </p>
         </div>
       </section>
@@ -111,7 +101,7 @@
 
     </main>
 
-    <footer class="text-muted" style="background: scroll center url('/images/footer1.jpg')">
+    <footer class="text-muted" >
       <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>
