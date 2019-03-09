@@ -79,7 +79,7 @@
                                 <a class="dropdown-item" href="/admin/order">Dashboard</a>
 
                                 @if (Auth::user()->name == "admin")
-                                        <a class="dropdown-item" href="/register">Register</a>
+                                        <a class="dropdown-item" href="/register">Register Staff</a>
                                 @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

@@ -118,9 +118,7 @@ class AdminController extends Controller
         /* $shop = shop::all(); */
         $shop=new shop;
 
-        $this->validate($request, [
-            'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-        ]);
+        $this->validate($request, [ 'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8096', ]);
 
         if ($request->hasFile('input_img')) {
             $id = DB::table('shops')->orderBy('id', 'desc')->first();

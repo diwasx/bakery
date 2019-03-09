@@ -63,6 +63,7 @@
                         $item_name=$item->name;
                         $item_id=$item->id;
                         $item_desc=$item->description;
+                        $item_price="Rs. ".$item->price;
                         $src = 'img/'.$item_id.'.jpg';
                         $item_image = $item->image;
                         $src=asset($src)."?".time();
@@ -72,6 +73,7 @@
                     {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
                 <div class="card-body">
+                  <p class="card-text">{{$item_price}}</p>
                   <p class="card-text">{{$item_desc}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">

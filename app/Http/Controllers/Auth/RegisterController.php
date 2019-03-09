@@ -38,7 +38,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         /* $this->middleware('guest'); */
-        $this->middleware('admin');
+        $this->middleware('admin');     /* Run middleware before loading page. (admin is location at routeMiddleware of file Kernel.php */
     }
 
     /**
