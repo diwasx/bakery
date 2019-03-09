@@ -15,6 +15,9 @@
     <div class="my-3 py-3">
       <h2 class="display-5">Another headline</h2>
       <p class="lead">And an even wittier subheading.</p>
+      {{-- <img src=" --}}
+        {{-- <img src={{asset("storage/images/Capture.PNG")}}></img> --}}
+        {{-- <img src="{{ asset('images/Capture.PNG') }}" style="width: 100%; height: 100%;"> --}}
     </div>
     <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
   </div>

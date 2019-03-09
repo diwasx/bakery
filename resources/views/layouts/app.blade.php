@@ -24,6 +24,7 @@
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
     <link href="{{ asset('dashboard.css') }}" rel="stylesheet">
+
 </head>
 <body>
     {{-- <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-dark"> --}}

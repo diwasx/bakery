@@ -33,6 +33,8 @@
 body {
   {{-- background: #007bff; --}}
   {{-- background: linear-gradient(to right, #0062E6, #33AEFF); --}}
+  background: linear-gradient(to right, #ff5db1 0%,#ef017c);
+
 }
 
 .card-signin {
@@ -51,7 +53,7 @@ body {
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+  background: scroll center url('/images/productNew.jpg');
   background-size: cover;
 }
 

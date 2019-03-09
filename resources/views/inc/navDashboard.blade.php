@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar" sytle={background-image: "/public/images/bg.jpg";}>
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
 
