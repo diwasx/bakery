@@ -1,5 +1,49 @@
 @extends('layouts.app')
 @section('content')
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <img class="first-slide" src="/images/.jpg" alt="First slide">
+      <div class="container">
+        <div class="carousel-caption text-left">
+          <p>Everyday Kringle Favorites Every slice is a celebration!  For over 65 years, the Olesen family has continued to use the traditional methods of Old Denmark to make our Kringle. Each Kringle takes 3 full days to make, resulting in 36 delicate layers for a truly flaky and flavorful pastry. Combine our scratch made fillings from the finest ingredients we can find, you are certain to find a flavor suited just for you. With thirteen delectable and award-winning flavors, you'll find a favorite for everyone on your list.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="second-slide" src="/images/cover.jpg" alt="Second slide">
+      <div class="container">
+        <div class="carousel-caption">
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">OR click here to order online from shop </a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="third-slide" src="/images/cover1.jpg" alt="Third slide">
+      <div class="container">
+        <div class="carousel-caption text-right">
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal">Punny headline</h1>
