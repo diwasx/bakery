@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Bakery') }}</title>
+    {{-- <title>{{ config('app.name', 'Bakery') }}</title> --}}
+    <title>GrG's Bakery</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,7 +29,7 @@
     <!-- Removing whitespace -->
     <style> 
     body{
-        padding-bottom: 0px;
+        padding-top: 55px;
     }
 
     footer{
@@ -39,12 +40,14 @@
     </style>
 
 </head>
-<body>
+<body >
     {{-- <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-dark"> --}}
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Bakery') }}
+                {{-- {{ config('app.name', 'Bakery') }} --}}
+                GrG's Bakery
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
