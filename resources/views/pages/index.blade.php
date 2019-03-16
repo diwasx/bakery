@@ -1,6 +1,96 @@
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/vendor/holder.min.js"></script>
+<script>
+  Holder.addTheme('thumb', {
+    bg: '#55595c',
+    fg: '#eceeef',
+    text: 'Thumbnail'
+  });
+</script>
+<style>
+header div .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+<script>
+var scrolling = false;
+var currentPos = 0;
+
+    function scrollUp(){
+        if(!scrolling && currentPos > 0 ){
+            scrolling=true;
+            currentPos --;
+            var scrollToElement = $('.scrollTo')[currentPos];
+
+            $('html, body').animate({
+                scrollTop: $(scrollToElement).offset().top
+            }, 500, function(){
+                scrolling = false;
+            });      
+        }
+    }   
+
+    function scrollDown(){   
+        if(!scrolling && currentPos < $('.scrollTo').length-1  ){
+            scrolling=true;
+            currentPos ++;
+            var scrollToElement = $('.scrollTo')[currentPos];
+
+            $('html, body').animate({
+                scrollTop: $(scrollToElement).offset().top
+            }, 500,function(){
+                scrolling = false;
+            }); 
+        }
+    }    
+
+    $(document).ready(function() {
+
+        // Get the current position on load
+
+        for( var i = 0; i < $('.scrollTo').length; i++){
+            var elm = $('.scrollTo')[i];
+
+            if( $(document).scrollTop() >= $(elm).offset().top ){
+                currentPos = i;
+            }
+        }
+
+        $(document).bind('DOMMouseScroll', function(e){
+            if(e.originalEvent.detail > 0) {
+                scrollDown();
+            }else {
+                scrollUp();   
+            }
+            return false;
+        });
+
+        $(document).bind('mousewheel', function(e){
+            if(e.originalEvent.wheelDelta < 0) {
+                scrollDown();
+            }else {
+                scrollUp();     
+            }
+            return false;
+        });
+    });
+</script>
 @extends('layouts.app')
 @section('content')
-
     {{-- First Slide --}}
 <header class='scrollTo'>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -124,95 +214,5 @@
 @include('inc.footer')
 </header>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
-<script src="../../assets/js/vendor/holder.min.js"></script>
-<script>
-  Holder.addTheme('thumb', {
-    bg: '#55595c',
-    fg: '#eceeef',
-    text: 'Thumbnail'
-  });
-</script>
-<style>
-header div .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
 
-<script src="{{ asset('js/app.js') }}"></script>
-<script>
-var scrolling = false;
-var currentPos = 0;
-
-    function scrollUp(){
-        if(!scrolling && currentPos > 0 ){
-            scrolling=true;
-            currentPos --;
-            var scrollToElement = $('.scrollTo')[currentPos];
-
-            $('html, body').animate({
-                scrollTop: $(scrollToElement).offset().top
-            }, 500, function(){
-                scrolling = false;
-            });      
-        }
-    }   
-
-    function scrollDown(){   
-        if(!scrolling && currentPos < $('.scrollTo').length-1  ){
-            scrolling=true;
-            currentPos ++;
-            var scrollToElement = $('.scrollTo')[currentPos];
-
-            $('html, body').animate({
-                scrollTop: $(scrollToElement).offset().top
-            }, 500,function(){
-                scrolling = false;
-            }); 
-        }
-    }    
-
-    $(document).ready(function() {
-
-        // Get the current position on load
-
-        for( var i = 0; i < $('.scrollTo').length; i++){
-            var elm = $('.scrollTo')[i];
-
-            if( $(document).scrollTop() >= $(elm).offset().top ){
-                currentPos = i;
-            }
-        }
-
-        $(document).bind('DOMMouseScroll', function(e){
-            if(e.originalEvent.detail > 0) {
-                scrollDown();
-            }else {
-                scrollUp();   
-            }
-            return false;
-        });
-
-        $(document).bind('mousewheel', function(e){
-            if(e.originalEvent.wheelDelta < 0) {
-                scrollDown();
-            }else {
-                scrollUp();     
-            }
-            return false;
-        });
-    });
-</script>
 @endsection
