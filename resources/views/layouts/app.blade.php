@@ -24,12 +24,12 @@
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
-    <link href="{{ asset('dashboard.css') }}" rel="stylesheet">
 
     <!-- Removing whitespace -->
     <style> 
     body{
         padding-top: 55px;
+        background-color: #f7f3f0;
     }
 
     footer{

@@ -13,13 +13,16 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/location', 'PagesController@HOL');
-
 Route::get('/menus', 'PagesController@menus');
 
 Route::get('/about', 'PagesController@about');
 
 Route::get('/shop', 'PagesController@shop');
+
+/* /1* For testing *1/ */
+/* Route::get('/test', function(){ */
+/*     return view('test'); */
+/* }); */
 
 /* Both method works */
 Route::get('/checkout/{id}', 'PagesController@checkout');
