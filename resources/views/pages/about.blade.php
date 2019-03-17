@@ -138,9 +138,8 @@
         <h3 class=""><strong>Hours and Location</strong></h3>
         <br>
         <pre class="lead">
-30 East 30th St.,
-New York, NY 10016 
-646-747-8625
+Nakhipot, Bishal Chowk
+Patan 44700, Nepal
 
 Open Every Day : 7AM - 6PM
         </pre>
