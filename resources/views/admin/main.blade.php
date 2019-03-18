@@ -6,7 +6,7 @@
     @include('inc.navDashboard')
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="container">
-          <h2>PENDING ORDER</h2>
+          <h2 class='text-center'>PENDING ORDER</h2>
     </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">

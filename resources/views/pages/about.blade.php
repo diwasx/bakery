@@ -48,7 +48,7 @@
     </div>
     <div class="modal-body">
       <p>Shina Mayuri</p>
-      <p>I am mayuri</p>
+      <p>I am mayuriGrG's Bakery honors the Roman tradition of delicious coffee in an energetic and convivial environment. Open from morning through early evening, GrG's Bakery serves up a proprietary roast designed to evoke the gutsy character of Roman espresso and to complement the array of breakfast sandwiches and traditional Italian pasticcerie by Pastry Chef Jessica Weiss. At midday, casual and hearty Roman inspired fare, including sandwiches, salads and soups will be available along with an afternoon selection of beer and wine. As in the neighborhood coffee bars of Rome, the airy interiors are lined with terrazzo countertops for stand-up, on-the-go refueling.</p>
       <br />
       <button class="close-modal">Close!</button>
     </div>
