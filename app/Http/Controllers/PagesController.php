@@ -29,7 +29,6 @@ class PagesController extends Controller
 
     public function shop(){
         $items = shop::all();
-        /* $items = shop::find($id); */
         return view('pages.shop')->with('items',$items);
 
     }

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('css/custom.css') }}" rel="stylesheet"> --}}
+
 <section class="jumbotron text-center" style="background: scroll center url('/images/about/about.jpg');">
     <div class="container" style="height:200px" >
     </div>

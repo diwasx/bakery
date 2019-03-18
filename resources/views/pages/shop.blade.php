@@ -1,8 +1,8 @@
-@extends("layouts.app")
-@section("content")
-    <link href="{{ asset('/lightbox/ekko-lightbox.css') }}" rel="stylesheet">
-    <script src="{{ asset('/lightbox/ekko-lightbox.js') }}" defer></script>
-    <script src="{{ asset('/lightbox/ekko-lightbox.js.map') }}" defer></script>
+@extends('layouts.app')
+@section('content')
+
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+<link href="{{ asset('css/modal.css') }}" rel="stylesheet">
 
 <header>
       <div class="collapse bg-dark" id="navbarHeader">
@@ -25,6 +25,7 @@
           </div>
         </div>
       </div>
+
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
@@ -102,17 +103,14 @@
 </main>
 @include('inc.footer')
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
     <script>
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            });
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
     </script>
 @endsection

@@ -31,9 +31,7 @@
 }
 
 body {
-  {{-- background: #007bff; --}}
   {{-- background: linear-gradient(to right, #0062E6, #33AEFF); --}}
-  background: linear-gradient(to right, #ff5db1 0%,#ef017c);
 
 }
 

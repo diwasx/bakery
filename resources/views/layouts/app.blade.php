@@ -12,6 +12,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('/lightbox/ekko-lightbox.css') }}" rel="stylesheet">
+    <script src="{{ asset('/lightbox/ekko-lightbox.js') }}" defer></script>
+    <script src="{{ asset('/lightbox/ekko-lightbox.js.map') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,6 +27,9 @@
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
+
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+<link href="{{ asset('css/modal.css') }}" rel="stylesheet">
 
     <!-- Removing whitespace -->
     <style> 

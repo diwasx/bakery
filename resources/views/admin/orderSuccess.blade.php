@@ -22,7 +22,7 @@
           {{-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> --}}
 
         <div class="container">
-              <h2>SUCCESS ORDER</h2>
+              <h2 class='text-center'>SUCCESS ORDER</h2>
         </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
