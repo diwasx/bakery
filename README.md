@@ -73,7 +73,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Diwash Ale - diwasx@gmail.com
 
-Project Link: [https://github.com/diwasx/bakery](https://github.com/othneildrew/othneildrew.github.io)
+Project Link: [https://github.com/diwasx/bakery](https://github.com/diwasx/bakery)
 
 
 <!-- ACKNOWLEDGEMENTS -->
