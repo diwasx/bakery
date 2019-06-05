@@ -29,9 +29,16 @@
 
     <!-- Removing whitespace -->
     <style> 
+
+    div{
+        font-size: 0;
+        font-size: 16px;
+    }
+
     body{
         padding-top: 55px;
-        background-color: #f7f3f0;
+        {{-- background-color: #f7f3f0; --}}
+        background-image: linear-gradient(to left, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     }
 
     footer{
@@ -116,7 +123,6 @@
             </div>
         </div>
     </nav>
-    @include('inc.messages')
     @yield('content')
 </body>
 </html>

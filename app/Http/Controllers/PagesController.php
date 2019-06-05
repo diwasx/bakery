@@ -41,17 +41,24 @@ class PagesController extends Controller
     }
 
     public function store(Request $request,$items_id){
-        
-        $order=new order;
-        $order->id_cake=$items_id;
-        $order->fname=$request->input('fname');
-        $order->lname=$request->input('lname');
-        $order->phone=$request->input('phone');
-        $order->email=$request->input('email');
-        $order->pickupType=$request->input('optradio');
-        $order->address=$request->input('address');
-        $order->save();
-        return redirect('/shop')->with('success', 'Successfully ordered');
+        try { 
+            $order=new order;
+            $order->id_cake=$items_id;
+            $order->fname=$request->input('fname');
+            $order->lname=$request->input('lname');
+            $order->phone=$request->input('phone');
+            $order->size=$request->input('size');
+            $order->email=$request->input('email');
+            $order->pickupType=$request->input('optradio');
+            $order->address=$request->input('address');
+            $order->remark=$request->input('remark');
+            $order->save();
+            return redirect('/shop')->with('success', 'Successfully ordered');
+            } catch(\Illuminate\Database\QueryException $ex){ 
+                /* dd('Some data you enter is too long. Review your data once more and try using less character!! '.$ex->getMessage()); */ 
+                dd($ex->getMessage()); 
+            }
+
 
     }
 }

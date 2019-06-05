@@ -1,25 +1,31 @@
 @extends('layouts.app')
 @section('content')
+
 <header>
 <div class="container-fluid">
   <div class="row">
-    @include('inc.navDashboard')
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    {{-- @include('inc.navDashboard') --}}
+    @extends('inc.navDashboard')
+    @section('table')
+    @include('inc.messages')
+    <main role="main" >
     <div class="container">
-          <h2 class='text-center'>PENDING ORDER</h2>
+          <h2 class='text-center font-weight-bold'>PENDING ORDER</h2>
     </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Cake id</th>
-              <th>First Name</th>
-              <th>Second Name</th>
-              <th>Phone no.</th>
+              <th>o.id</th>
+              <th>c.id</th>
+              <th>FName</th>
+              <th>LName</th>
+              <th>Phno</th>
+              <th>Cake size</th>
               <th>Email</th>
               <th>Pickup Type</th>
               <th>Address</th>
+              <th>Remark</th>
               <th>Time of order</th>
             </tr>
           </thead>
@@ -31,9 +37,11 @@
               <td>{{$item->fname}} </td>
               <td>{{$item->lname}} </td>
               <td>{{$item->phone}} </td>
+              <td>{{$item->size}} </td>
               <td>{{$item->email}} </td>
               <td>{{$item->pickupType}} </td>
               <td>{{$item->address}} </td>
+              <td>{{$item->remark}} </td>
               <td>{{$item->created_at}} </td>
 
               <td>

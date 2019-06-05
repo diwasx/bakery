@@ -178,7 +178,7 @@ body {
                               </div>
 
                               <div class="form-label-group">
-                                <input name='price' type="text" id="price" class="form-control" placeholder="Price" required autofocus>
+                                <input name='price' type="number" id="price" class="form-control" placeholder="Price" required autofocus>
                                 <label for="price">Price</label>
                               </div>
                               <hr>

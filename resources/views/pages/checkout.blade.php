@@ -4,14 +4,13 @@
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>Checkout form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <p class="lead">Fill your detail and we will contact you as soon as we get your order.</p>
       </div>
 
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -34,14 +33,14 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
-                <input name="fname" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input name="fname" type="text" class="form-control" id="firstName" placeholder="First Name" value="" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
-                <input name="lname" type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <input name="lname" type="text" class="form-control" id="lastName" placeholder="Last Name" value="" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -49,14 +48,30 @@
             </div>
 
             <div class="mb-3">
-              <label for="username">Phone Number</label>
+              <label for="phone">Phone Number</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">+</span>
                 </div>
-                <input name="phone" type="text" class="form-control" id="username" placeholder="Phone no." required>
+                <input name="phone" type="number" class="form-control" id="phone" placeholder="Phone no." required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Your phone number is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="size">Cake size</label>
+              <div class="input-group">
+                {{-- <select> --}}
+                {{-- <option value="volvo">Volvo</option> --}}
+                {{-- <option value="saab">Saab</option> --}}
+                {{-- <option value="mercedes">Mercedes</option> --}}
+                {{-- <option value="audi">Audi</option> --}}
+                {{-- </select> --}}
+                <input name="size" type="number" class="form-control" id="size" placeholder="Cake size" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Cake size is required.
                 </div>
               </div>
             </div>
@@ -100,6 +115,9 @@
               </div>
             </div>
 
+            <label for="remark">Remark</label>
+            <input name="remark" type="text" class="form-control" id="remark" placeholder="Any feature you want to mention?">
+            <br>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
         </div>
@@ -133,5 +151,7 @@
           });
         }, false);
       })();
+
     </script>
+
 @endsection

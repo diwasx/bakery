@@ -13,12 +13,8 @@
     <style> 
     body{
         padding-top: 55px;
-        background-color: #f7f3f0;
-    }
-
-    footer{
-        postion: absolute;
-        background: scroll center url('/images/footer1.jpg');
+        {{-- background-color: #f7f3f0; --}}
+        background-image: linear-gradient(to left, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     }
 
     </style>
@@ -631,5 +627,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/active.js"></script>
 
 </body>
-
 </html>

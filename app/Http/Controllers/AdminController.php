@@ -70,9 +70,11 @@ class AdminController extends Controller
         $post->fname = $member['fname'];
         $post->lname = $member['lname'];
         $post->phone = $member['phone'];
+        $post->size = $member['size'];
         $post->email = $member['email'];
         $post->pickupType = $member['pickupType'];
         $post->address = $member['address'];
+        $post->remark = $member['remark'];
         $post->save();
         
         $member::where('id_order', '=', $id_order)->delete();
@@ -89,9 +91,11 @@ class AdminController extends Controller
         $post->fname = $member['fname'];
         $post->lname = $member['lname'];
         $post->phone = $member['phone'];
+        $post->size = $member['size'];
         $post->email = $member['email'];
         $post->pickupType = $member['pickupType'];
         $post->address = $member['address'];
+        $post->remark = $member['remark'];
         $post->save();
         
         $member::where('id_order', '=', $id_order)->delete();
@@ -133,7 +137,7 @@ class AdminController extends Controller
             }
             $image = $request->file('input_img');
             $name = $id.'.jpg';
-            $destinationPath = public_path('img');
+            $destinationPath = public_path('img_product');
             $image->move($destinationPath, $name);
         }
 
@@ -163,7 +167,7 @@ class AdminController extends Controller
             ]);
             $image = $request->file('input_img');
             $src = $id.'.jpg';
-            $destinationPath = public_path('img');
+            $destinationPath = public_path('img_product');
             $image->move($destinationPath, $src);
 
         }
@@ -199,11 +203,12 @@ class AdminController extends Controller
 
     public function delete(Request $request,$id)
     {
-        /* $file="/img/".$id.".jpg"; */
-        $file=public_path().'/img/'.$id.'.jpg';
+        $file=public_path().'/img_product/'.$id.'.jpg';
         File::delete($file);
         DB::table('shops')->where('id', '=', $id)->delete();
         return redirect('/admin/product')->with('success', 'Successfully deleted product');
+
+\Log::info('This is some useful information.');
         
     }
 }

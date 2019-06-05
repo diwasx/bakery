@@ -1,0 +1,4 @@
+Use /register to create admin account at first
+only admin can create other staff account
+o.id = order id
+c.id = cake id

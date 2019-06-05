@@ -165,10 +165,10 @@ body {
                              <!-- Background image for card set in CSS! -->
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title text-center">Product</h5>
+                              <h5 class="card-title text-center">#{{$item->id}}</h5>
                             <?php
                                 $src=$item->id;
-                                $src='/img/'.$src.'.jpg';
+                                $src='/img_product/'.$src.'.jpg';
 
                             ?>
                             <img src={{$src}} alt="..." class="img-thumbnail">

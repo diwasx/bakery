@@ -1,47 +1,25 @@
 @extends("layouts.app")
 @section("content")
+@include('inc.messages')
     <link href="{{ asset('/lightbox/ekko-lightbox.css') }}" rel="stylesheet">
     <script src="{{ asset('/lightbox/ekko-lightbox.js') }}" defer></script>
     <script src="{{ asset('/lightbox/ekko-lightbox.js.map') }}" defer></script>
 
 <header>
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">Quote</h4>
-              <p class="text-muted">Baking cookies is comforting, and cookies are the sweetest little bit of comfort food. They are very bite-sized and personal.</p>
-              <p class="text-muted">Life is better with fresh baked cookies.</p>
-              <p class="text-muted">Baking may be regarded as a science, but it's the chemistry between the ingredients and the cook that gives desserts life. Baking is done out of love, to share with family and friends, to see them smile.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="https://www.instagram.com/grgsbakery/" target="_blank" class="text-white">Follow on Instagram</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            <strong>Our Product</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-    </div>
 </header>
+
+<style>
+    body, .grad-color{
+        {{-- background-color: #f7f3f0; --}}
+        background-image: linear-gradient(to left, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+    }
+</style>
 
 <main role="main">
 
   <section class="jumbotron text-center" style="background: scroll center url('/images/bg.jpg')">
-    <div class="container" >
+  {{-- <section class="jumbotron text-center grad-color"> --}}
+    <div class="container">
       <h1 class="jumbotron-heading text-light">Grg Bakery</h1>
       <p class="lead text-info">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
       <p>
@@ -51,10 +29,10 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-light" style="background-image: linear-gradient(to right top, #eebad7, #f1b0d9, #f2a6db, #f29cdf, #f093e4);">
-    <div class="container" >
+  {{-- <div class="album py-5 bg-light" style="background-image: linear-gradient(to right top, #eebad7, #f1b0d9, #f2a6db, #f29cdf, #f093e4);"> --}}
+  <div class="album py-5 bg-light grad-color" >
+    <div class="container grad-color" >
       <div class="row" >
-
         @foreach($items as $item)
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
@@ -65,11 +43,11 @@
                     $item_id=$item->id;
                     $item_desc=$item->description;
                     $item_price="Rs. ".$item->price;
-                    $src = 'img/'.$item_id.'.jpg';
+                    $src = 'img_product/'.$item_id.'.jpg';
                     $item_image = $item->image;
                     $src=asset($src)."?".time();
                 ?>
-                  <p class="text-center bg-info">{{$item_name}}</p>
+                <kbd><p class="text-center text-primary" style="font-size:18px;">{{$item_name}}</p></kbd>
                 <img class="card-img-top" src={{$src}} alt={{$item_name}}/>
                 {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
