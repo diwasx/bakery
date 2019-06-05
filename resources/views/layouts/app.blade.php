@@ -25,6 +25,8 @@
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="style.css">
+
     <!-- Removing whitespace -->
     <style> 
     body{

@@ -1,215 +1,635 @@
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-{{-- <script> --}}
-{{--   Holder.addTheme('thumb', { --}}
-{{--     bg: '#55595c', --}}
-{{--     fg: '#eceeef', --}}
-{{--     text: 'Thumbnail' --}}
-{{--   }); --}}
-{{-- </script> --}}
-<style>
-header div .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-<script>
-var scrolling = false;
-var currentPos = 0;
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
 
-    function scrollUp(){
-        if(!scrolling && currentPos > 0 ){
-            scrolling=true;
-            currentPos --;
-            var scrollToElement = $('.scrollTo')[currentPos];
+    <style> 
+    body{
+        padding-top: 55px;
+        background-color: #f7f3f0;
+    }
 
-            $('html, body').animate({
-                scrollTop: $(scrollToElement).offset().top
-            }, 500, function(){
-                scrolling = false;
-            });      
-        }
-    }   
+    footer{
+        postion: absolute;
+        background: scroll center url('/images/footer1.jpg');
+    }
 
-    function scrollDown(){   
-        if(!scrolling && currentPos < $('.scrollTo').length-1  ){
-            scrolling=true;
-            currentPos ++;
-            var scrollToElement = $('.scrollTo')[currentPos];
+    </style>
 
-            $('html, body').animate({
-                scrollTop: $(scrollToElement).offset().top
-            }, 500,function(){
-                scrolling = false;
-            }); 
-        }
-    }    
+</head>
 
-    $(document).ready(function() {
+<body>
 
-        // Get the current position on load
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{-- {{ config('app.name', 'Bakery') }} --}}
+                GrG's Bakery
 
-        for( var i = 0; i < $('.scrollTo').length; i++){
-            var elm = $('.scrollTo')[i];
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            if( $(document).scrollTop() >= $(elm).offset().top ){
-                currentPos = i;
-            }
-        }
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="/location">Hours and Location</a>
+                    </li> --}}
 
-        $(document).bind('DOMMouseScroll', function(e){
-            if(e.originalEvent.detail > 0) {
-                scrollDown();
-            }else {
-                scrollUp();   
-            }
-            return false;
-        });
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menus">Menus</a>
+                    </li>
 
-        $(document).bind('mousewheel', function(e){
-            if(e.originalEvent.wheelDelta < 0) {
-                scrollDown();
-            }else {
-                scrollUp();     
-            }
-            return false;
-        });
-    });
-</script>
-@extends('layouts.app')
-@section('content')
-    {{-- First Slide --}}
-<header class='scrollTo'>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('/images/index/index3.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <p class='lead font-weight-bold '>Everyday Kringle Favorites Every slice is a celebration!  For over 65 years, the Olesen family has continued to use the traditional methods of Old Denmark to make our Kringle. Each Kringle takes 3 full days to make, resulting in 36 delicate layers for a truly flaky and flavorful pastry. Combine our scratch made fillings from the finest ingredients we can find, you are certain to find a flavor suited just for you. With thirteen delectable and award-winning flavors, you'll find a favorite for everyone on your list.</p>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">Shop</a>
+                    </li>
+
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            {{-- <li class="nav-item"> --}}
+                            {{--     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> --}}
+                            {{-- </li> --}}
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/admin/order">Dashboard</a>
+
+                                @if (Auth::user()->name == "admin")
+                                        <a class="dropdown-item" href="/register">Register Staff</a>
+                                @endif
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
         </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/index5.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          {{-- <h2 class="display-4">Second Slide</h2> --}}
+    </nav>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="original-load"></div>
         </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/index7.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          {{-- <h2 class="display-4">Third Slide</h2> --}}
-          {{-- <p class="lead">This is a description for the third slide.</p> --}}
-        </div>
-      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
 
-    {{-- Second Slide --}}
-<header class='scrollTo'>
-  <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('/images/index/index9.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h1>GrG's Bakery</h1>
+    <!-- Subscribe Modal -->
+    <div class="subscribe-newsletter-area">
+        <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="modal-body">
+                        <h5 class="title">Subscribe to my newsletter</h5>
+                        <form action="#" class="newsletterForm" method="post">
+                            <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail here">
+                            <button type="submit" class="btn original-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/index4.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h1>GrG's Bakery</h1>
-        </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/index1.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h1>GrG's Bakery</h1>
-        </div>
-      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
 
-    {{-- Third Slide --}}
-<header class='scrollTo'>
-  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('/images/index/index10.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 align='center'>GrG's Bakery</h2>
-          <h2 align='center'>"Place where cakes get SHAPED" </h2>
-          <h2 align='center'>Contact us on 9813633705 </h2>
-          <h2 align='center'>Viber :: +977 9813633705 </h2>
+    <!-- ##### Hero Area Start ##### -->
+    <div class="hero-area">
+        <!-- Hero Slides Area -->
+        <div class="hero-slides owl-carousel">
+            <!-- Single Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b2.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="slide-content text-center">
+                                <div class="post-tag">
+                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                </div>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b1.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="slide-content text-center">
+                                <div class="post-tag">
+                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                </div>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b3.jpg);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="slide-content text-center">
+                                <div class="post-tag">
+                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                </div>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/cover.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('/images/index/cover1.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
-      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
+    <!-- ##### Hero Area End ##### -->
 
-<header class='scrollTo'>
-@include('inc.footer')
-</header>
+    <!-- ##### Blog Wrapper Start ##### -->
+    <div class="blog-wrapper section-padding-100 clearfix">
+        <div class="container">
+            <div class="row align-items-end">
+                <!-- Single Blog Area -->
+                <div class="col-12 col-lg-4">
+                    <div class="single-blog-area clearfix mb-100">
+                        <!-- Blog Content -->
+                        <div class="single-blog-content">
+                            <div class="line"></div>
+                            <a href="#" class="post-tag">Lifestyle</a>
+                            <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                            <a href="#" class="btn original-btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Blog Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-catagory-area clearfix mb-100">
+                        <img src="img/blog-img/1.jpg" alt="">
+                        <!-- Catagory Title -->
+                        <div class="catagory-title">
+                            <a href="#">Lifestyle posts</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Blog Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-catagory-area clearfix mb-100">
+                        <img src="img/blog-img/2.jpg" alt="">
+                        <!-- Catagory Title -->
+                        <div class="catagory-title">
+                            <a href="#">latest posts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-9">
 
-@endsection
+                    <!-- Single Blog Area  -->
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-thumbnail">
+                                    <img src="img/blog-img/3.jpg" alt="">
+                                    <div class="post-date">
+                                        <a href="#">12 <span>march</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content">
+                                    <div class="line"></div>
+                                    <a href="#" class="post-tag">Lifestyle</a>
+                                    <h4><a href="#" class="post-headline">Party people in the house</a></h4>
+                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <div class="post-meta">
+                                        <p>By <a href="#">james smith</a></p>
+                                        <p>3 comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Blog Area  -->
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1000ms">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-thumbnail">
+                                    <img src="img/blog-img/4.jpg" alt="">
+                                    <div class="post-date">
+                                        <a href="#">12 <span>march</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content">
+                                    <div class="line"></div>
+                                    <a href="#" class="post-tag">Lifestyle</a>
+                                    <h4><a href="#" class="post-headline">We love colors in 2018</a></h4>
+                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <div class="post-meta">
+                                        <p>By <a href="#">james smith</a></p>
+                                        <p>3 comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Blog Area  -->
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1000ms">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="single-blog-thumbnail">
+                                    <img src="img/blog-img/7.jpg" alt="">
+                                    <div class="post-date">
+                                        <a href="#">10 <span>march</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content mt-50">
+                                    <div class="line"></div>
+                                    <a href="#" class="post-tag">Lifestyle</a>
+                                    <h4><a href="#" class="post-headline">10 Tips to organize the perfect party</a></h4>
+                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <div class="post-meta">
+                                        <p>By <a href="#">james smith</a></p>
+                                        <p>3 comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Blog Area  -->
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1000ms">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-thumbnail">
+                                    <img src="img/blog-img/5.jpg" alt="">
+                                    <div class="post-date">
+                                        <a href="#">12 <span>march</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content">
+                                    <div class="line"></div>
+                                    <a href="#" class="post-tag">Lifestyle</a>
+                                    <h4><a href="#" class="post-headline">Party people in the house</a></h4>
+                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <div class="post-meta">
+                                        <p>By <a href="#">james smith</a></p>
+                                        <p>3 comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Blog Area  -->
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1000ms">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-thumbnail">
+                                    <img src="img/blog-img/6.jpg" alt="">
+                                    <div class="post-date">
+                                        <a href="#">12 <span>march</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content">
+                                    <div class="line"></div>
+                                    <a href="#" class="post-tag">Lifestyle</a>
+                                    <h4><a href="#" class="post-headline">We love colors in 2018</a></h4>
+                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <div class="post-meta">
+                                        <p>By <a href="#">james smith</a></p>
+                                        <p>3 comments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more-btn mt-100 wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1000ms">
+                        <a href="#" class="btn original-btn">Read More</a>
+                    </div>
+                </div>
+
+                <!-- ##### Sidebar Area ##### -->
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="post-sidebar-area">
+
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <form action="#" class="search-form">
+                                <input type="search" name="search" id="searchForm" placeholder="Search">
+                                <input type="submit" value="submit">
+                            </form>
+                        </div>
+
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title subscribe-title">Subscribe to my newsletter</h5>
+                            <div class="widget-content">
+                                <form action="#" class="newsletterForm">
+                                    <input type="email" name="email" id="subscribesForm" placeholder="Your e-mail here">
+                                    <button type="submit" class="btn original-btn">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Advertisement</h5>
+                            <a href="#"><img src="img/bg-img/add.gif" alt=""></a>
+                        </div>
+
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Latest Posts</h5>
+
+                            <div class="widget-content">
+
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/lp1.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="#" class="post-tag">Lifestyle</a>
+                                        <h4><a href="#" class="post-headline">Party people in the house</a></h4>
+                                        <div class="post-meta">
+                                            <p><a href="#">12 March</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/lp2.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="#" class="post-tag">Lifestyle</a>
+                                        <h4><a href="#" class="post-headline">A sunday in the park</a></h4>
+                                        <div class="post-meta">
+                                            <p><a href="#">12 March</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/lp3.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="#" class="post-tag">Lifestyle</a>
+                                        <h4><a href="#" class="post-headline">Party people in the house</a></h4>
+                                        <div class="post-meta">
+                                            <p><a href="#">12 March</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="img/blog-img/lp4.jpg" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="#" class="post-tag">Lifestyle</a>
+                                        <h4><a href="#" class="post-headline">A sunday in the park</a></h4>
+                                        <div class="post-meta">
+                                            <p><a href="#">12 March</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Tags</h5>
+                            <div class="widget-content">
+                                <ul class="tags">
+                                    <li><a href="#">design</a></li>
+                                    <li><a href="#">fashion</a></li>
+                                    <li><a href="#">travel</a></li>
+                                    <li><a href="#">music</a></li>
+                                    <li><a href="#">party</a></li>
+                                    <li><a href="#">video</a></li>
+                                    <li><a href="#">photography</a></li>
+                                    <li><a href="#">adventure</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Wrapper End ##### -->
+
+    <!-- ##### Instagram Feed Area Start ##### -->
+    <div class="instagram-feed-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="insta-title">
+                        <h5>Follow us @ Instagram</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Instagram Slides -->
+        <div class="instagram-slides owl-carousel">
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/1.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/2.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/3.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/4.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/5.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/6.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Single Insta Feed -->
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/7.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Instagram Feed Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                   
+                    <!-- Footer Nav Area -->
+                    <div class="classy-nav-container breakpoint-off">
+                        <!-- Classy Menu -->
+                        <nav class="classy-navbar justify-content-center">
+
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+
+                            <!-- Menu -->
+                            <div class="classy-menu">
+
+                                <!-- close btn -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">travel</a></li>
+                                        <li><a href="#">Music</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Nav End -->
+                            </div>
+                        </nav>
+                    </div>
+                    
+                    <!-- Footer Social Area -->
+                    <div class="footer-social-area mt-30">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>
