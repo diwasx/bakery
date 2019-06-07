@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\shop;
 use App\User;
 use App\order;
+use App\cake_sizes;
 
 class PagesController extends Controller
 {
@@ -29,15 +30,19 @@ class PagesController extends Controller
 
     public function shop(){
         $items = shop::all();
+        $sizes = cake_sizes::all();
         /* $items = shop::find($id); */
-        return view('pages.shop')->with('items',$items);
+        /* return view('pages.shop')->with('items',$items); */
+        return view('pages.shop', compact('items','sizes'));
 
     }
 
     public function checkout($items_id){
         /* return $items_id; */
         $item=shop::find($items_id);
-        return view('pages.checkout')->with('item',$item);
+        $sizes=cake_sizes::where('id_cake', '=', $items_id)->get();
+        /* return view('pages.checkout')->with('item',$item); */
+        return view('pages.checkout', compact('item','sizes'));
     }
 
     public function store(Request $request,$items_id){
@@ -55,8 +60,8 @@ class PagesController extends Controller
             $order->save();
             return redirect('/shop')->with('success', 'Successfully ordered');
             } catch(\Illuminate\Database\QueryException $ex){ 
-                /* dd('Some data you enter is too long. Review your data once more and try using less character!! '.$ex->getMessage()); */ 
-                dd($ex->getMessage()); 
+                dd('Some data you enter is too long. Review your data once more and try using less character!! '.$ex->getMessage()); 
+                /* dd($ex->getMessage()); */ 
             }
 
 

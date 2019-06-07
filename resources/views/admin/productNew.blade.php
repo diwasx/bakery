@@ -167,7 +167,7 @@ body {
                             <h5 class="card-title text-center">Product</h5>
 
                             {{-- Form part --}}
-                            <form enctype="multipart/form-data" action="/admin/product/store" method="POST" class="form-signin">
+                            <form enctype="multipart/form-data" action="/admin/product/store" method="POST" id="my-form" class="form-signin">
 
                                 {{-- This is need for crf protection in form --}}
                                 {{ csrf_field() }}
@@ -178,10 +178,111 @@ body {
                               </div>
 
                               <div class="form-label-group">
-                                <input name='price' type="number" id="price" class="form-control" placeholder="Price" required autofocus>
-                                <label for="price">Price</label>
+                                <input name='price' type="number" id="price" class="form-control" placeholder="Price per pound" required autofocus>
+                                <label for="price">Price per pound</label>
                               </div>
                               <hr>
+                              
+                              {{-- Cake size --}}
+                              <div class="form-label-group">
+                                <div id="myDIV" class="header">
+                                  <h4 style="margin:5px">Cake sizes in pound</h4>
+                                  {{-- <p>Cake sizes list</p> --}}
+                                  <input type="number" id="myInput" >
+                                  <span onclick="newElement()" class="addBtn btn">Add</span>
+                                    {{-- <input type="hidden" name="csize[]" value="111" class ="c_size"> --}}
+                                </div>
+
+                                <ul id="myUL">
+                                  {{-- <li>Hit the gym</li> --}}
+                                  {{-- <li>Organize office</li> --}}
+                                </ul>
+
+                                <script>
+                                    var myArray = [];
+                                // Create a "close" button and append it to each list item
+                                {{-- var myNodelist = document.getElementsByTagName("LI"); --}}
+                                var myNodelist = document.getElementsByClassName("cake-item");
+                                var i;
+                                for (i = 0; i < myNodelist.length; i++) {
+                                  var span = document.createElement("SPAN");
+                                  var txt = document.createTextNode("\u00D7");
+                                  span.className = "close";
+                                  span.appendChild(txt);
+                                  myNodelist[i].appendChild(span);
+                                }
+
+                                // Click on a close button to hide the current list item
+                                var close = document.getElementsByClassName("close");
+                                var i;
+                                for (i = 0; i < close.length; i++) {
+                                  close[i].onclick = function() {
+                                    var div = this.parentElement;
+                                    div.style.display = "none";
+                                  }
+                                }
+
+                                // Add a "checked" symbol when clicking on a list item
+                                var list = document.querySelector('ul');
+                                list.addEventListener('click', function(ev) {
+                                  if (ev.target.tagName === 'LI') {
+                                    ev.target.classList.toggle('checked');
+                                  }
+                                }, false);
+
+                                // Create a new list item when clicking on the "Add" button
+                                function newElement() {
+                                  var li = document.createElement("li");
+                                  li.className = "cake-item";
+                                  var inputValue = document.getElementById("myInput").value;
+                                    myArray.push(inputValue);
+
+
+                                  var t = document.createTextNode(inputValue);
+                                  li.appendChild(t);
+                                  if (inputValue === '') {
+                                    alert("You must write something!");
+                                  } else {
+                                    document.getElementById("myUL").appendChild(li);
+                                  }
+                                  document.getElementById("myInput").value = "";
+                                  var span = document.createElement("SPAN");
+                                  var txt = document.createTextNode("\u00D7");
+                                  span.className = "close";
+                                  span.appendChild(txt);
+                                  li.appendChild(span);
+
+                                  for (i = 0; i < close.length; i++) {
+                                    close[i].onclick = function() {
+                                      var div = this.parentElement;
+                                      div.style.display = "none";
+                                        
+                                      {{-- console.log(div.textContent) --}}
+                                        var toRemove = div.textContent
+                                        toRemove = toRemove.substring(0, toRemove.length - 1);
+                                        var index = myArray.indexOf(toRemove);
+                                        if (index !== -1) myArray.splice(index, 1);
+                                    }
+                                  }
+                                }
+                                function finalData(){
+                                    for (s of myArray) {
+                                      var myForm = document.getElementById('my-form')
+                                      var hiddenInput = document.createElement('input')
+                                      hiddenInput.type = 'hidden'
+                                      hiddenInput.name = 'myarray[]'
+                                      hiddenInput.value = s
+                                      {{-- Yo khate command na lekhera ruwayo --}}
+                                      myForm.appendChild(hiddenInput)
+                                    }
+                                }
+
+                                </script>
+
+                              </div>
+                              <hr>
+                              {{-- Cake size end --}}
+
                               <div class="form-label-group">
                                 <input name='description' type="text" id="description" class="form-control" placeholder="Description" required autofocus>
                                 <label for="description">Description</label>
@@ -202,7 +303,7 @@ body {
                                     <img id='img-upload'/>
                                 </div>
                               
-                              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                              <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="finalData()" type="submit">Register</button>
                             </form>
                           </div>
                         </div>

@@ -20,8 +20,8 @@
                 {{-- <small class="text-muted">Brief description</small> --}}
                 <small class="text-muted">{{$item->description}}</small>
               </div>
-              {{-- <span class="text-muted">$12</span> --}}
-              <span class="text-muted">{{$item->price}}</span>
+              {{-- <span class="text-muted">{{$item->price*100}}</span> --}}
+              <span class="text-muted"><p id="output"></p></span>
             </li>
           </ul>
 
@@ -63,16 +63,29 @@
             <div class="mb-3">
               <label for="size">Cake size</label>
               <div class="input-group">
-                {{-- <select> --}}
-                {{-- <option value="volvo">Volvo</option> --}}
-                {{-- <option value="saab">Saab</option> --}}
-                {{-- <option value="mercedes">Mercedes</option> --}}
-                {{-- <option value="audi">Audi</option> --}}
-                {{-- </select> --}}
-                <input name="size" type="number" class="form-control" id="size" placeholder="Cake size" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  Cake size is required.
-                </div>
+                <select name="size" id="select-cake">
+                    <?php foreach($sizes as $tmp){ ?>
+                    <option value={{$tmp->sizes}}>{{$tmp->sizes}}</option> 
+                    <?php } ?>
+                </select>
+                  <script type="text/javascript">
+                        var tmp = {{$item->price}}
+                        var e = document.getElementById("select-cake");
+                        var strUser = e.options[e.selectedIndex].value;
+                        document.getElementById('output').innerHTML = tmp*strUser;
+                        var eSelect = document.getElementById('select-cake');
+                        var optOtherReason = document.getElementById('otherdetail');
+                        eSelect.onchange = function() {
+                            {{-- console.log('changed'); --}}
+                            strUser = e.options[e.selectedIndex].value;
+                            document.getElementById('output').innerHTML = tmp*strUser;
+                        }
+                  </script>
+                <p class="card-text">: Pound</p>
+                {{-- <input name="size" type="number" class="form-control" id="size" placeholder="Cake size" required> --}}
+                {{-- <div class="invalid-feedback" style="width: 100%;"> --}}
+                {{--   Cake size is required. --}}
+                {{-- </div> --}}
               </div>
             </div>
 
@@ -91,7 +104,6 @@
               <label><input type="radio" onclick="javascript:yesnoCheck();" value="self" name="optradio">Self pickup</label>
             </div>
             <script type="text/javascript">
-
             function yesnoCheck() {
                 if (document.getElementById('sp').checked) {
                     document.getElementById('ifYes').style.display = 'block';
@@ -104,7 +116,6 @@
                 }
 
             }
-
             </script>
 
             <div id='ifYes' class="mb-3">
@@ -128,7 +139,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields

@@ -7,6 +7,7 @@ use App\order;
 use App\orderFail;
 use App\orderSuccess;
 use App\shop;
+use App\cake_sizes;
 use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -144,6 +145,18 @@ class AdminController extends Controller
         $shop->id=$id;
         $shop->name=$request->input('name');
         $shop->price=$request->input('price');
+
+        /* dd($request->input('myarray.3')); */
+        /* dd($request->input('myarray')); */
+        $csizes=$request->input('myarray');
+        foreach ($csizes as $tmp){
+            /* model object should be created everytime data is save */
+            $cake_sizes=new cake_sizes;
+            $cake_sizes->id_cake=$id;
+            $cake_sizes->sizes=$tmp;
+            $cake_sizes->save();
+        }
+        
         $shop->description=$request->input('description');
         $shop->save();
         return redirect('/admin/product')->with('success', 'Successfully added product');
@@ -153,8 +166,6 @@ class AdminController extends Controller
     public function editStore(Request $request)
     {
         $shop=new shop;
-
-
 
         $id=$request->input('id');
         $name=$request->input('name');
@@ -186,8 +197,23 @@ class AdminController extends Controller
         /*     ->update(['price' => $price]); */
         /*     ->update(['description' => $desc]); */
         /* } */
+        
 
-
+        try{
+            $csizes=$request->input('myarray');
+            cake_sizes::where('id_cake',$id)->delete();
+            foreach ($csizes as $tmp){
+                /* model object should be created everytime data is save */
+                $cake_sizes=new cake_sizes;
+                $cake_sizes->id_cake=$id;
+                $cake_sizes->sizes=$tmp;
+                $cake_sizes->save();
+            }
+        } catch(\Exception $ex){ 
+                /* dd($ex->getMessage()); */ 
+                /* dd('Please enter at least one size for cake'); */ 
+            return redirect('/admin/product')->with('success', 'Successfully updated product');
+        }
 
         return redirect('/admin/product')->with('success', 'Successfully updated product');
         
@@ -197,7 +223,13 @@ class AdminController extends Controller
     {
         
         $item=shop::find($id);
-        return view('admin.productEdit')->with('item',$item);
+        $id_cake=$id;
+        $sizes=cake_sizes::where('id_cake', '=', $id)->get();
+        /* dd($item); */
+
+        /* return view('admin.productEdit')->with('item',$item,$sizes); */
+        /* return view('admin.productEdit')->with(item,sizes); */
+        return view('admin.productEdit', compact('item','sizes'));
         
     }
 
@@ -206,6 +238,7 @@ class AdminController extends Controller
         $file=public_path().'/img_product/'.$id.'.jpg';
         File::delete($file);
         DB::table('shops')->where('id', '=', $id)->delete();
+        DB::table('cake_sizes')->where('id_cake', '=', $id)->delete();
         return redirect('/admin/product')->with('success', 'Successfully deleted product');
 
 \Log::info('This is some useful information.');

@@ -52,8 +52,8 @@
                 {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
             <div class="card-body">
-              <p class="card-text">{{$item_price}}</p>
-              <p class="card-text">{{$item_desc}}</p>
+              <p class="card-text" >{{$item_price}} per pound</p>
+              <p class="card-text" >{{$item_desc}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="/checkout/{{$item_id}}">Buy</a></button>

@@ -19,7 +19,7 @@ class CreateOrderSuccessesTable extends Migration
             $table->string('fname',20);
             $table->string('lname',20);
             $table->string('phone',15);
-            $table->string('size',10);
+            $table->string('size',10)->nullable();
             $table->string('email',40)->nullable();
             $table->string('pickupType');
             $table->string('address',40)->nullable();

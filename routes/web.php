@@ -42,6 +42,11 @@ Route::get('/admin/order/fail/{id}', 'AdminController@orderFail');
 Route::get('/admin/product', 'AdminController@product');
 Route::get('/admin/product/new', 'AdminController@new');
 
+Route::get('/admin/test', function(){
+    return view('admin.cake_size');
+});
+
+
 /* file upload dont allow get method */
 Route::post('/admin/product/store', 'AdminController@store');
 Route::post('/admin/product/editStore', 'AdminController@editStore');

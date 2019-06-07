@@ -7,7 +7,7 @@
         @include('inc.messages')
         <main role="main" >
         <div class="container">
-              <h2 class='text-center font-weight-bold'>SUCCESS ORDER</h2>
+              <h2 class='text-center font-weight-bold'>SUCCESSFUL ORDER</h2>
         </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
