@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<script>
-    var myArray = [];
-</script>
-
 <style>
 .btn-file {
     position: relative;
@@ -205,21 +201,28 @@ body {
                                 </div>
 
                                 <ul id="myUL">
+
+                                    <script>
+                                        var myArray = [];
+                                    </script>
+
                                     <?php
                                         foreach ($sizes as $tmp){
                                     ?>
+
                                     <li class = "cake-item">{{$tmp->sizes}}</li>
 
                                     <script>
                                         var pausecontent = <?php echo $tmp->sizes ?>;
-                                        var pausecontent = pausecontent.toString();
-                                       myArray.push(pausecontent)
+                                        pausecontent = pausecontent.toString()
+                                        console.log(pausecontent)
+                                        myArray.push(pausecontent);
                                     </script>
-
 
                                   <?php
                                       }
                                   ?>
+
                                 </ul>
 
                                 <script>

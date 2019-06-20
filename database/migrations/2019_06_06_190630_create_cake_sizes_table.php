@@ -15,7 +15,7 @@ class CreateCakeSizesTable extends Migration
     {
         Schema::create('cake_sizes', function (Blueprint $table) {
             $table->integer('id_cake');	
-            $table->integer('sizes');	
+            $table->float('sizes');	
         });
     }
 

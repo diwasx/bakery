@@ -20,10 +20,10 @@
   <section class="jumbotron text-center" style="background: scroll center url('/images/bg.jpg')">
   {{-- <section class="jumbotron text-center grad-color"> --}}
     <div class="container">
-      <h1 class="jumbotron-heading text-light">Grg Bakery</h1>
+      {{-- <h1 class="jumbotron-heading text-light">Grg Bakery</h1> --}}
       <p class="lead text-info">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
       <p>
-        <a href="https://www.instagram.com/grgsbakery/" class="btn btn-primary my-2">Check out instagram for more</a>
+        <a href="https://www.instagram.com/grgsbakery/" target="_blank" class="btn btn-primary my-2">Check out instagram for more</a>
         {{-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> --}}
       </p>
     </div>

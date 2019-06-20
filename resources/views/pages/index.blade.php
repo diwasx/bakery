@@ -17,6 +17,10 @@
         background-image: linear-gradient(to left, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     }
 
+    .full-height {
+      height: 100%;
+    }
+
     </style>
 
 </head>
@@ -95,6 +99,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="preload-content">
@@ -102,26 +107,9 @@
         </div>
     </div>
 
-    <!-- Subscribe Modal -->
-    <div class="subscribe-newsletter-area">
-        <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="modal-body">
-                        <h5 class="title">Subscribe to my newsletter</h5>
-                        <form action="#" class="newsletterForm" method="post">
-                            <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail here">
-                            <button type="submit" class="btn original-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- ##### Hero Area Start ##### -->
-    <div class="hero-area">
+    <div class="hero-area h-100 mh-100">
         <!-- Hero Slides Area -->
         <div class="hero-slides owl-carousel">
             <!-- Single Slide -->
@@ -133,7 +121,7 @@
                                 <div class="post-tag">
                                     <a href="#" data-animation="fadeInUp">lifestyle</a>
                                 </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
                             </div>
                         </div>
                     </div>
@@ -148,7 +136,7 @@
                                 <div class="post-tag">
                                     <a href="#" data-animation="fadeInUp">lifestyle</a>
                                 </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
                             </div>
                         </div>
                     </div>
@@ -163,7 +151,7 @@
                                 <div class="post-tag">
                                     <a href="#" data-animation="fadeInUp">lifestyle</a>
                                 </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
                             </div>
                         </div>
                     </div>
@@ -178,38 +166,38 @@
         <div class="container">
             <div class="row align-items-end">
                 <!-- Single Blog Area -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-12">
                     <div class="single-blog-area clearfix mb-100">
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag">Lifestyle</a>
-                            <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                            <a href="#" class="post-tag">GrG's Bakery</a>
+                            <h4><a href="#" class="post-headline">Welcome to this GrG's bakery</a></h4>
                             <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
                             <a href="#" class="btn original-btn">Read More</a>
                         </div>
                     </div>
                 </div>
+                {{-- <!-- Single Blog Area --> --}}
+                {{-- <div class="col-12 col-md-6 col-lg-4"> --}}
+                {{--     <div class="single-catagory-area clearfix mb-100"> --}}
+                {{--         <img src="img/blog-img/1.jpg" alt=""> --}}
+                {{--         <!-- Catagory Title --> --}}
+                {{--         <div class="catagory-title"> --}}
+                {{--             <a href="#">Lifestyle posts</a> --}}
+                {{--         </div> --}}
+                {{--     </div> --}}
+                {{-- </div> --}}
                 <!-- Single Blog Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-catagory-area clearfix mb-100">
-                        <img src="img/blog-img/1.jpg" alt="">
-                        <!-- Catagory Title -->
-                        <div class="catagory-title">
-                            <a href="#">Lifestyle posts</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Blog Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-catagory-area clearfix mb-100">
-                        <img src="img/blog-img/2.jpg" alt="">
-                        <!-- Catagory Title -->
-                        <div class="catagory-title">
-                            <a href="#">latest posts</a>
-                        </div>
-                    </div>
-                </div>
+                {{-- <div class="col-12 col-md-6 col-lg-4"> --}}
+                {{--     <div class="single-catagory-area clearfix mb-100"> --}}
+                {{--         <img src="img/blog-img/2.jpg" alt=""> --}}
+                {{--         <!-- Catagory Title --> --}}
+                {{--         <div class="catagory-title"> --}}
+                {{--             <a href="#">latest posts</a> --}}
+                {{--         </div> --}}
+                {{--     </div> --}}
+                {{-- </div> --}}
             </div>
         </div>
 
@@ -364,25 +352,6 @@
 
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
-                            <form action="#" class="search-form">
-                                <input type="search" name="search" id="searchForm" placeholder="Search">
-                                <input type="submit" value="submit">
-                            </form>
-                        </div>
-
-                        <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
-                            <h5 class="title subscribe-title">Subscribe to my newsletter</h5>
-                            <div class="widget-content">
-                                <form action="#" class="newsletterForm">
-                                    <input type="email" name="email" id="subscribesForm" placeholder="Your e-mail here">
-                                    <button type="submit" class="btn original-btn">Subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
                             <h5 class="title">Advertisement</h5>
                             <a href="#"><img src="img/bg-img/add.gif" alt=""></a>
                         </div>
@@ -488,7 +457,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="insta-title">
-                        <h5>Follow us @ Instagram</h5>
+                        <h5>Follow us @ <a href="https://www.instagram.com/grgsbakery/" target="_blank">Instagram</a></h5>
                     </div>
                 </div>
             </div>
@@ -551,6 +520,29 @@
                     <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
                 </div>
             </div>
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/8.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/9.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="single-insta-feed">
+                <img src="img/instagram-img/10.png" alt="">
+                <!-- Hover Effects -->
+                <div class="hover-effects">
+                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ##### Instagram Feed Area End ##### -->
@@ -560,60 +552,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                   
-                    <!-- Footer Nav Area -->
-                    <div class="classy-nav-container breakpoint-off">
-                        <!-- Classy Menu -->
-                        <nav class="classy-navbar justify-content-center">
-
-                            <!-- Navbar Toggler -->
-                            <div class="classy-navbar-toggler">
-                                <span class="navbarToggler"><span></span><span></span><span></span></span>
-                            </div>
-
-                            <!-- Menu -->
-                            <div class="classy-menu">
-
-                                <!-- close btn -->
-                                <div class="classycloseIcon">
-                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                                </div>
-
-                                <!-- Nav Start -->
-                                <div class="classynav">
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">travel</a></li>
-                                        <li><a href="#">Music</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Nav End -->
-                            </div>
-                        </nav>
-                    </div>
-                    
-                    <!-- Footer Social Area -->
                     <div class="footer-social-area mt-30">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/grgsbakery/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                         <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-
-   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
     </footer>
-    <!-- ##### Footer Area End ##### -->
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
