@@ -15,7 +15,6 @@
 
     <!-- Fonts -->
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> --}}
 
     <!-- Styles -->
 
@@ -25,7 +24,8 @@
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-validation.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    {{-- <link rel="stylesheet" href="style.css"> --}}
+    <link href="{{ asset('style.css') }}" rel="stylesheet">
 
     <!-- Removing whitespace -->
     <style> 

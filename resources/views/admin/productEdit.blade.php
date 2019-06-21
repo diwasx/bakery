@@ -49,9 +49,8 @@ body {
 }
 
 .card-signin .card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! */
-  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+  width: 100%;
+  background: scroll center url('/images/productNew.jpg');
   background-size: cover;
 }
 
@@ -159,7 +158,7 @@ body {
                 <div class="container">
                     <a href="/admin/product" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel Edit</a>
                     <div class="row">
-                      <div class="col-lg-10 col-xl-9 mx-auto">
+                      <div >
                         <div class="card card-signin flex-row my-5">
                           <div class="card-img-left d-none d-md-flex">
                              <!-- Background image for card set in CSS! -->
@@ -215,17 +214,25 @@ body {
                                     <script>
                                         var pausecontent = <?php echo $tmp->sizes ?>;
                                         pausecontent = pausecontent.toString()
-                                        console.log(pausecontent)
                                         myArray.push(pausecontent);
-                                    </script>
 
+
+                                    </script>
                                   <?php
                                       }
                                   ?>
-
                                 </ul>
 
                                 <script>
+
+                                {{-- Converting all values of array to 2 decimal point so can be sliced --}}
+                                var x = 0;
+                                var len = myArray.length
+                                while(x < len){ 
+                                    myArray[x] = parseFloat(myArray[x]).toFixed(2); 
+                                    x++
+                                }
+
                                 // Create a "close" button and append it to each list item
                                 {{-- var myNodelist = document.getElementsByTagName("LI"); --}}
                                 var myNodelist = document.getElementsByClassName("cake-item");
@@ -245,11 +252,13 @@ body {
                                   close[i].onclick = function() {
                                     var div = this.parentElement;
                                     div.style.display = "none";
-                                      {{-- console.log(div.textContent) --}}
                                         var toRemove = div.textContent
                                         toRemove = toRemove.substring(0, toRemove.length - 1);
+
+                                      console.log(toRemove)
                                         var index = myArray.indexOf(toRemove);
                                         if (index !== -1) myArray.splice(index, 1);
+                                      console.log(myArray)
                                   }
                                 }
 
@@ -266,14 +275,13 @@ body {
                                   var li = document.createElement("li");
                                   li.className = "cake-item";
                                   var inputValue = document.getElementById("myInput").value;
-                                    myArray.push(inputValue);
-
 
                                   var t = document.createTextNode(inputValue);
                                   li.appendChild(t);
                                   if (inputValue === '') {
                                     alert("You must write something!");
                                   } else {
+                                    myArray.push(inputValue);
                                     document.getElementById("myUL").appendChild(li);
                                   }
                                   document.getElementById("myInput").value = "";
@@ -288,7 +296,7 @@ body {
                                       var div = this.parentElement;
                                       div.style.display = "none";
                                         
-                                      console.log(div.textContent)
+                                      {{-- console.log(div.textContent) --}}
                                         var toRemove = div.textContent
                                         toRemove = toRemove.substring(0, toRemove.length - 1);
                                         var index = myArray.indexOf(toRemove);
@@ -358,11 +366,11 @@ body {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
     <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="{{ asset('js/feather.min.js') }}"></script>
 
     <script>
         feather.replace()

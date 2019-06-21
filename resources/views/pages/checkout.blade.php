@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="/images/checkout.png" alt="" width="72" height="72">
         <h2>Checkout form</h2>
         <p class="lead">Fill your detail and we will contact you as soon as we get your order.</p>
       </div>
@@ -139,7 +139,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields

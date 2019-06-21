@@ -235,8 +235,6 @@ body {
                                   var li = document.createElement("li");
                                   li.className = "cake-item";
                                   var inputValue = document.getElementById("myInput").value;
-                                    myArray.push(inputValue);
-
 
                                   var t = document.createTextNode(inputValue);
                                   li.appendChild(t);
@@ -244,6 +242,7 @@ body {
                                     alert("You must write something!");
                                   } else {
                                     document.getElementById("myUL").appendChild(li);
+                                    myArray.push(inputValue);
                                   }
                                   document.getElementById("myInput").value = "";
                                   var span = document.createElement("SPAN");
@@ -257,7 +256,7 @@ body {
                                       var div = this.parentElement;
                                       div.style.display = "none";
                                         
-                                      {{-- console.log(div.textContent) --}}
+                                      console.log(div.textContent)
                                         var toRemove = div.textContent
                                         toRemove = toRemove.substring(0, toRemove.length - 1);
                                         var index = myArray.indexOf(toRemove);
@@ -324,11 +323,12 @@ body {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
     <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    {{-- <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script> --}}
+    <script src="{{ asset('js/feather.min.js') }}"></script>
 
     <script>
         feather.replace()
