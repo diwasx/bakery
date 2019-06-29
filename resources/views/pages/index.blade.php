@@ -173,31 +173,13 @@
                             <div class="line"></div>
                             <a href="#" class="post-tag">GrG's Bakery</a>
                             <h4><a href="#" class="post-headline">Welcome to this GrG's bakery</a></h4>
-                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                            {{-- <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p> --}}
+
+                            <p style="font-size:19px"> Hello there! Welcome to our grgs bakery page. We have been making cakes since 2016. We do bake cake based on whipping cream and fondants are only used for details. Our main specialty is that we get simple theme cake ready within 20minutes.</p>
                             <a href="#" class="btn original-btn">Read More</a>
                         </div>
                     </div>
                 </div>
-                {{-- <!-- Single Blog Area --> --}}
-                {{-- <div class="col-12 col-md-6 col-lg-4"> --}}
-                {{--     <div class="single-catagory-area clearfix mb-100"> --}}
-                {{--         <img src="img/blog-img/1.jpg" alt=""> --}}
-                {{--         <!-- Catagory Title --> --}}
-                {{--         <div class="catagory-title"> --}}
-                {{--             <a href="#">Lifestyle posts</a> --}}
-                {{--         </div> --}}
-                {{--     </div> --}}
-                {{-- </div> --}}
-                <!-- Single Blog Area -->
-                {{-- <div class="col-12 col-md-6 col-lg-4"> --}}
-                {{--     <div class="single-catagory-area clearfix mb-100"> --}}
-                {{--         <img src="img/blog-img/2.jpg" alt=""> --}}
-                {{--         <!-- Catagory Title --> --}}
-                {{--         <div class="catagory-title"> --}}
-                {{--             <a href="#">latest posts</a> --}}
-                {{--         </div> --}}
-                {{--     </div> --}}
-                {{-- </div> --}}
             </div>
         </div>
 
@@ -211,21 +193,16 @@
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
                                     <img src="img/blog-img/3.jpg" alt="">
-                                    <div class="post-date">
-                                        <a href="#">12 <span>march</span></a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <!-- Blog Content -->
                                 <div class="single-blog-content">
                                     <div class="line"></div>
-                                    <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">Party people in the house</a></h4>
-                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <h4><a href="#" class="post-headline"> "We sell happiness. It just happens to look like a cupcake." </a></h4>
+                                    <p>We opened our doors in 2016, and that first day we sold out of every baked good by noon. Over the last twenty years, we’ve learned a few things (like how to keep up with demand!), but are honored to still delight some of those very same customers.</p>
                                     <div class="post-meta">
-                                        <p>By <a href="#">james smith</a></p>
-                                        <p>3 comments</p>
+                                        <p>By <a href="#">Binum Gurung</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -237,22 +214,17 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/blog-img/4.jpg" alt="">
-                                    <div class="post-date">
-                                        <a href="#">12 <span>march</span></a>
-                                    </div>
+                                    <img src="images/index/shop1.png" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <!-- Blog Content -->
                                 <div class="single-blog-content">
                                     <div class="line"></div>
-                                    <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">We love colors in 2018</a></h4>
-                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <h4><a href="#" class="post-headline">A team that feels a whole lot like family</a></h4>
+                                    <p>To us, a bakery is everything that’s right with a neighborhood. We love working dough in the early hours of the morning, the satisfyingly straight rows of baguette, and too-adorable-to-eat cupcakes. We love putting smiles on the faces of little ones, prepping for the big meeting with a great breakfast, and giving an excuse to lingering with an old friend. We love every single minute of being your neighborhood bakery.</p>
                                     <div class="post-meta">
-                                        <p>By <a href="#">james smith</a></p>
-                                        <p>3 comments</p>
+                                        <p>By <a href="#">Samisa Rana</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -264,22 +236,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/blog-img/7.jpg" alt="">
-                                    <div class="post-date">
-                                        <a href="#">10 <span>march</span></a>
-                                    </div>
+                                    <img src="images/index/shop.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <!-- Blog Content -->
                                 <div class="single-blog-content mt-50">
-                                    <div class="line"></div>
-                                    <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">10 Tips to organize the perfect party</a></h4>
-                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <br>
+                                    <br>
+                                    <br>
                                     <div class="post-meta">
-                                        <p>By <a href="#">james smith</a></p>
-                                        <p>3 comments</p>
                                     </div>
                                 </div>
                             </div>
@@ -291,22 +257,21 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/blog-img/5.jpg" alt="">
+                                    <img src="/images/index/testomonial.jpg" alt="">
                                     <div class="post-date">
-                                        <a href="#">12 <span>march</span></a>
+                                        <a href="#">20 <span>June</span></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
+                                <h4><a href="#" class="post-headline">RECENT TESTIMONIALS </a></h4>
                                 <!-- Blog Content -->
                                 <div class="single-blog-content">
                                     <div class="line"></div>
-                                    <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">Party people in the house</a></h4>
-                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <h4><a href="#" class="post-headline">Exceeded statisfactory level</a></h4>
+                                    <p>Great place to chill, get away, eat some good food. there was quick, helpful, and friendly service. Feels similar to a cafe in Chicago I loved.</p>
                                     <div class="post-meta">
-                                        <p>By <a href="#">james smith</a></p>
-                                        <p>3 comments</p>
+                                        <p>By <a href="#">Prateek KC</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -318,22 +283,19 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/blog-img/6.jpg" alt="">
+                                    <img src="/images/index/testomonial1.jpg" alt="">
                                     <div class="post-date">
-                                        <a href="#">12 <span>march</span></a>
+                                        <a href="#">12 <span>June</span></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <!-- Blog Content -->
                                 <div class="single-blog-content">
-                                    <div class="line"></div>
-                                    <a href="#" class="post-tag">Lifestyle</a>
-                                    <h4><a href="#" class="post-headline">We love colors in 2018</a></h4>
-                                    <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt.</p>
+                                    <h4><a href="#" class="post-headline">Awesome, just awesome</a></h4>
+                                    <p>I can say this place does it for me. Service is consistently above par. Bring your appetite because portions are large.</p>
                                     <div class="post-meta">
-                                        <p>By <a href="#">james smith</a></p>
-                                        <p>3 comments</p>
+                                        <p>By <a href="#">Ashish Neupane</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -357,90 +319,19 @@
                         </div>
 
                         <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
-                            <h5 class="title">Latest Posts</h5>
-
-                            <div class="widget-content">
-
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="img/blog-img/lp1.jpg" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="#" class="post-tag">Lifestyle</a>
-                                        <h4><a href="#" class="post-headline">Party people in the house</a></h4>
-                                        <div class="post-meta">
-                                            <p><a href="#">12 March</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="img/blog-img/lp2.jpg" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="#" class="post-tag">Lifestyle</a>
-                                        <h4><a href="#" class="post-headline">A sunday in the park</a></h4>
-                                        <div class="post-meta">
-                                            <p><a href="#">12 March</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="img/blog-img/lp3.jpg" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="#" class="post-tag">Lifestyle</a>
-                                        <h4><a href="#" class="post-headline">Party people in the house</a></h4>
-                                        <div class="post-meta">
-                                            <p><a href="#">12 March</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="img/blog-img/lp4.jpg" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="#" class="post-tag">Lifestyle</a>
-                                        <h4><a href="#" class="post-headline">A sunday in the park</a></h4>
-                                        <div class="post-meta">
-                                            <p><a href="#">12 March</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
                             <h5 class="title">Tags</h5>
                             <div class="widget-content">
                                 <ul class="tags">
-                                    <li><a href="#">design</a></li>
-                                    <li><a href="#">fashion</a></li>
-                                    <li><a href="#">travel</a></li>
-                                    <li><a href="#">music</a></li>
-                                    <li><a href="#">party</a></li>
-                                    <li><a href="#">video</a></li>
-                                    <li><a href="#">photography</a></li>
-                                    <li><a href="#">adventure</a></li>
+                                    <li><a href="#">Pastry</a></li>
+                                    <li><a href="#">Grocery</a></li>
+                                    <li><a href="#">Baking</a></li>
+                                    <li><a href="#">Cafe</a></li>
+                                    <li><a href="#">Supermarket</a></li>
+                                    <li><a href="#">Loaf</a></li>
+                                    <li><a href="#">Bread</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -553,9 +444,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-social-area mt-30">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/grgsbakery/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/grgsbakery/" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/grgsbakery/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        {{-- <a target="_blank" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a> --}}
                     </div>
                 </div>
             </div>

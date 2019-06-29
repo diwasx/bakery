@@ -2,7 +2,7 @@
   <h3 align="center">Bakery Website</h3>
 
   <p align="center">
-    A web application design for bakery advertisement, marketing and sale of products.
+    A web application designed for bakery advertisement, marketing and sale of products.
     <br />
     <a target="_blank" href="https://grgbakery.000webhostapp.com">View Demo</a>
     ·
