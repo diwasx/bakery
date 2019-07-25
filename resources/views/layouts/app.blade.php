@@ -80,11 +80,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/shop">Shop</a>
                     </li>
-
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">Shopping Cart</a>
+                    </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

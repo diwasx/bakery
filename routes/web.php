@@ -12,12 +12,10 @@
 */
 
 Route::get('/', 'PagesController@index');
-
 Route::get('/menus', 'PagesController@menus');
-
 Route::get('/about', 'PagesController@about');
-
 Route::get('/shop', 'PagesController@shop');
+Route::get('/cart', 'PagesController@cart');
 
 /* For testing */
 Route::get('/test', function(){

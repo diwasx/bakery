@@ -37,6 +37,11 @@ class PagesController extends Controller
 
     }
 
+    public function cart(){
+        return view('pages.cart');
+    }
+
+
     public function checkout($items_id){
         /* return $items_id; */
         $item=shop::find($items_id);
