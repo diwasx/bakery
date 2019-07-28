@@ -55,14 +55,14 @@ img {
     font-weight: 400;
     color: #232323;
     display: inline-block; }
-    .classy-nav-container a:hover, .classy-nav-container a:focus {
-      -webkit-transition-duration: 500ms;
-      transition-duration: 500ms;
-      text-decoration: none;
-      outline: none;
-      font-size: 14px;
-      font-weight: 400;
-      color: #1abc9c; }
+    /* .classy-nav-container a:hover, .classy-nav-container a:focus { */
+    /*   -webkit-transition-duration: 500ms; */
+    /*   transition-duration: 500ms; */
+    /*   text-decoration: none; */
+    /*   outline: none; */
+    /*   /1* font-size: 14px; *1/ */
+    /*   font-weight: 400; */
+    /*   color: #1abc9c; } */
   .classy-nav-container.classy-sticky {
     position: fixed;
     z-index: 1010;
@@ -104,14 +104,14 @@ img {
   -ms-grid-row-align: center;
   align-items: center; }
   .classy-navbar .nav-brand {
-    font-size: 26px;
+    /* font-size: 26px; */
     font-weight: 500;
     color: #565656;
     display: inline-block;
     margin-right: 30px; }
-    .classy-navbar .nav-brand:focus, .classy-navbar .nav-brand:hover {
-      font-size: 26px;
-      font-weight: 500; }
+    /* .classy-navbar .nav-brand:focus, .classy-navbar .nav-brand:hover { */
+      /* font-size: 26px; */
+      /* font-weight: 500; } */
 
 .classynav ul li {
   display: inline-block;
@@ -373,9 +373,9 @@ img {
   margin-left: 30px;
   text-align: center; }
 
-.classy-btn:hover,
-.classy-btn:focus {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+/* .classy-btn:hover, */
+/* .classy-btn:focus { */
+/*   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); } */
 
 /* Dropdown Toggle */
 .dd-trigger {
@@ -430,22 +430,22 @@ img {
   opacity: 0;
   visibility: hidden;
   top: 10px; }
-.breakpoint-off .classynav ul li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  top: 110%; }
-.breakpoint-off .classynav ul li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown,
-.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  top: -10px; }
+/* .breakpoint-off .classynav ul li:hover .dropdown { */
+/*   opacity: 1; */
+/*   visibility: visible; */
+/*   top: 110%; } */
+/* .breakpoint-off .classynav ul li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, */
+/* .breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown { */
+/*   opacity: 1; */
+/*   visibility: visible; */
+/*   top: -10px; } */
 .breakpoint-off .classynav ul li .megamenu {
   opacity: 0;
   visibility: hidden;
@@ -458,12 +458,12 @@ img {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   -webkit-transition-duration: 300ms;
   transition-duration: 300ms; }
-.breakpoint-off .classynav ul li.megamenu-item:hover .megamenu, .breakpoint-off .classynav ul li.megamenu-item:focus .megamenu {
-  top: 100%;
-  visibility: visible;
-  opacity: 1; }
-.breakpoint-off .classynav ul li.megamenu-item .dd-arrow {
-  display: none; }
+/* .breakpoint-off .classynav ul li.megamenu-item:hover .megamenu, .breakpoint-off .classynav ul li.megamenu-item:focus .megamenu { */
+/*   top: 100%; */
+/*   visibility: visible; */
+/*   opacity: 1; } */
+/* .breakpoint-off .classynav ul li.megamenu-item .dd-arrow { */
+/*   display: none; } */
 
 /* Fallback Responsive CSS */
 @media only screen and (max-width: 991px) {
@@ -666,8 +666,8 @@ img {
   background-color: #192a56; }
   .dark.classy-nav-container a {
     color: rgba(255, 255, 255, 0.7); }
-    .dark.classy-nav-container a:hover, .dark.classy-nav-container a:focus {
-      color: #ffffff; }
+    /* .dark.classy-nav-container a:hover, .dark.classy-nav-container a:focus { */
+    /*   color: #ffffff; } */
 .dark .classynav ul li .dropdown {
   background-color: #192a56; }
 .dark .has-down .dd-arrow::before,
@@ -742,14 +742,14 @@ img {
   opacity: 0;
   visibility: hidden;
   top: 10px; }
-.dropdown-rtl.breakpoint-off .classynav ul li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  top: 90%; }
-.dropdown-rtl.breakpoint-off .classynav ul li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  top: 0; }
+/* .dropdown-rtl.breakpoint-off .classynav ul li:hover .dropdown { */
+/*   opacity: 1; */
+/*   visibility: visible; */
+/*   top: 90%; } */
+/* .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown, .dropdown-rtl.breakpoint-off .classynav ul li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li .dropdown li:hover .dropdown { */
+/*   opacity: 1; */
+/*   visibility: visible; */
+/*   top: 0; } */
 .dropdown-rtl.breakpoint-on .classynav > ul > li.cn-dropdown-item.has-down > .dd-arrow {
   right: auto !important;
   left: 20px; }

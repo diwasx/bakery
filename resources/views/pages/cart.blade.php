@@ -1,194 +1,133 @@
 @extends('layouts.app')
 @section('content')
-
-<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-<section class="jumbotron text-center" style="background: scroll center url('/images/about/about.jpg');">
-    <div class="container" style="height:200px" >
-    </div>
-</section>
-
-<div class="text-center" style="padding:30px;">
-    <h2>We Bake.</h1>
-    <p>Monday - Friday 7 to 11 am.</p>
-    <p>Saturday &amp; Sunday 7am to 2 pm.</p>
-    
-</div>
-
-{{-- Menu --}}
 <div class="container">
-   <div class="row">
-      <div class="col-md-6" style="padding-right:20px; border-right: 1px solid #ccc; ">
-         <section class="menu-section" style="padding:20px;">
-            <div class="menu-section__header">
-               <h2>ESPECIAL FLAVOUR</h2>
-            </div>
-            <ul>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Oreo Kitkat Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>800/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Red Velvet Cake</p>
-                  
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>1000/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Fruit Cake</p>
-                  
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>800/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Mocha Cake</p>
-                  
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>800/-</strong>
-                  </p>
-               </li>
 
-            </ul>
-         </section>
-         <section class="menu-section" style="padding:20px; border-top: 1px solid #ccc;">
-            <div class="menu-section__header">
-                <br>
-               <h2>CUPCAKES</h2>
-               
+    <style>
+        .table>tbody>tr>td, .table>tfoot>tr>td{
+            vertical-align: middle;
+        }
+        @media screen and (max-width: 600px) {
+        table#cart tbody td .form-control{
+            width:20%;
+            display: inline !important;
+        }
+        .actions .btn{
+            width:36%;
+            margin:1.5em 0;
+        }
+        .actions .btn-info{
+            float:left;
+        }
+        .actions .btn-danger{
+            float:right;
+        }
+        table#cart thead { display: none; }
+        table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+        table#cart tbody tr td:first-child { background: #333; color: #fff; }
+        table#cart tbody td:before {
+            content: attr(data-th); font-weight: bold;
+            display: inline-block; width: 8rem;
+        }
+        table#cart tfoot td{display:block; }
+        table#cart tfoot td .btn{display:block;}
+        
+    </style>
+
+    <div class="container">
+        <table id="cart" class="table table-hover table-condensed">
+        @if(Session::has('cart'))
+                <thead>
+                    <tr>
+                        <th style="width:20%">Product</th>
+                        <th style="width:10%">Size</th>
+                        <th style="width:15%">Price Per Pound</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:10%"></th>
+                    </tr>
+                </thead>
+            @foreach($products as $product)
+            <?php
+                $item=$product['item'];
+                $size=$product['size'];
+                $item_name=$item->name;
+                $item_id=$item->id;
+                $item_desc=$item->description;
+                $item_price="Rs. ".$item->price;
+                $src = 'img_product/'.$item_id.'.jpg';
+                $item_image = $item->image;
+                $src=asset($src)."?".time();
+            ?>
+                <tbody>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-8 hidden-xs"><img src={{$src}} alt="..." class="img-responsive"/></div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">{{$item_name}}</h4>
+                                    {{-- <p>{{$item_desc}}</p> --}}
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">{{$size}}</td>
+                        <td data-th="Size">{{$item_price}}</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control text-center" value={{$product['qty']}}>
+                        </td>
+                        <td data-th="Subtotal" class="text-center">Rs. {{$product['price']}}</td>
+                        <td class="actions" data-th="">
+                            {{-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> --}}
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
+                <tfoot>
+                    <tr>
+                        <td><a href="/shop" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center"><strong>Net Total: Rs. {{$totalPrice}}</strong></td>
+                        <td><a href="/checkoutForm" class="btn btn-success btn-block">Next Step <i class="fa fa-angle-right"></i></a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        @else
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2>No Items in Cart</h2>
             </div>
-            <ul>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Vanilla</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>30</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Chocolate</p>
-                 
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>40</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Red Velvet</p>
-                  
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>50</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Choco. Banana</p>
-                  
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>35</strong>
-                  </p>
-               </li>
-            </ul>
-         </section>
-      </div>
-      <div class="col-md-6">
-         <section class="menu-section" style="padding:20px; border-bottom: 1px solid #ccc;">
-            <div class="menu-section__header">
-               <h2>REGULAR FLAVOUR</h2>
-            </div>
-            <ul>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Black Forest Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>550/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">White Forest Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>570</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Chocolate Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>650</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Strawberry Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Vanilla Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>500/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Chocovanilla Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Butterscotch Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Pineapple Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Orange Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Mango Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>600/-</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Coffee Cake</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>700/-</strong>
-                  </p>
-               </li>
-            </ul>
-         </section>
-         {{-- <section class="menu-section"> --}}
-         {{-- <section class="menu-section" style="padding:20px;">
-            <div class="menu-section__header">
-               <h2>COOKIES</h2>
-            </div>
-            <ul>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Almond Biscotti</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>2.50</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Chocolate Hazelnut</p>
-                  <p>Gluten Free</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ricotta Chocolate Chip</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ventaglio</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>4</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ciavattini</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3.50</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-               </li>
-            </ul>
-         </section> --}}
-      </div>
-   </div>
-</div>
+        </div>
+        @endif
+    </div>
+    </div>
+    <br><br>
 @include('inc.footer')
-<!-- Bootstrap core JavaScript
-   ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+    </script>
 
 @endsection

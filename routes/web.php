@@ -16,6 +16,10 @@ Route::get('/menus', 'PagesController@menus');
 Route::get('/about', 'PagesController@about');
 Route::get('/shop', 'PagesController@shop');
 Route::get('/cart', 'PagesController@cart');
+Route::get('/checkoutForm/', 'PagesController@checkoutForm');
+
+/* Route::get('/add_to_cart/{id}', 'PagesController@getAddToCart'); */
+Route::get('/add_to_cart/', 'PagesController@getAddToCart');
 
 /* For testing */
 Route::get('/test', function(){

@@ -30,6 +30,10 @@
     <!-- Removing whitespace -->
     <style> 
 
+    a {
+        font-size: 16px !important;
+    }
+
     div{
         font-size: 0;
         font-size: 16px;
@@ -54,9 +58,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{-- {{ config('app.name', 'Bakery') }} --}}
                 GrG's Bakery
-
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -85,7 +87,9 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/cart">Shopping Cart</a>
+                        <a class="nav-link fa fa-shopping-cart" href="/cart"> Shopping Cart
+                            <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span>
+                        </a>
                     </li>
                     <!-- Authentication Links -->
                     @guest

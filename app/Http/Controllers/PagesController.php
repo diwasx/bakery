@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\shop;
 use App\User;
+use App\Cart;
 use App\order;
 use App\cake_sizes;
+use Session;
 
 class PagesController extends Controller
 {
@@ -38,7 +40,37 @@ class PagesController extends Controller
     }
 
     public function cart(){
-        return view('pages.cart');
+        if (!Session::has('cart')){
+            return view('pages.cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('pages.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    /* public function getAddToCart(Request $request, $id){ */
+    /*     $product = shop::find($id); */
+    /*     /1* dd($product->price,$product->id); *1/ */
+    /*     $oldCart = Session::has('cart') ? Session::get('cart') : null; */
+    /*     $cart = new Cart($oldCart); */
+    /*     $cart->add($product, $product->id); */
+
+    /*     $request->session()->put('cart', $cart); */
+    /*     /1* dd($request->session()->get('cart')); *1/ */
+    /*     return redirect('/shop'); */
+    /* } */
+
+    public function getAddToCart(Request $request){
+        /* $product = shop::find($id); */
+        $product = shop::find($request->input('item-id'));
+        $size = $request->input('item-size');
+        /* dd($size); */
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id, $size);
+
+        $request->session()->put('cart', $cart);
+        return redirect('/shop');
     }
 
 
@@ -48,6 +80,10 @@ class PagesController extends Controller
         $sizes=cake_sizes::where('id_cake', '=', $items_id)->get();
         /* return view('pages.checkout')->with('item',$item); */
         return view('pages.checkout', compact('item','sizes'));
+    }
+
+    public function checkoutForm(){
+        return view('pages.checkoutForm');
     }
 
     public function store(Request $request,$items_id){

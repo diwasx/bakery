@@ -54,13 +54,47 @@
             <div class="card-body">
               <p class="card-text" >{{$item_price}} per pound</p>
               <p class="card-text" >{{$item_desc}}</p>
+
+              {{-- Cake sizes --}}
+            <div class="mb-3">
+              <label for="size">Available size</label>
+              <div class="input-group">
+                  <?php
+                      $selectName = "select-cake".$item->id;
+                      $id_id = "item-id".$item->id;
+                      $id_size = "item-size".$item->id;
+
+                  ?>
+                <select  name="size" id={{$selectName}}>
+                {{-- <select class="custom-select mr-sm-2" name="size" id={{$selectName}}> --}}
+                {{-- <select name="size" id={{$selectName}}> --}}
+                    @foreach($sizes as $tmp)
+                        @if($tmp->id_cake==$item_id)
+                            <option value={{$tmp->sizes}}>{{$tmp->sizes}}</option> 
+                        @endif
+                    @endforeach
+                </select>
+                <p class="card-text"> Pound</p>
+              </div>
+            </div>
+
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="/checkout/{{$item_id}}">Buy</a></button>
-                    {{-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> --}}
-                        {{-- <img id='viewimg' src="/img/3.jpg" alt="Smiley face" style="width:100%;max-width:300px;height:100%;max-height:300px"> --}}
-
-                    {{-- Lightbox library --}}
+                    <form action="/add_to_cart/" method="GET" class="needs-validation" novalidate>
+                        <input name="item-id" type="hidden" class="form-control" id={{$id_id}} value="{{$item->id}}" required>
+                        <input name="item-size" type="hidden" class="form-control" id={{$id_size}} required>
+                        <button onclick=addToCart{{$item->id}}() class="btn btn-primary btn-lg btn-block" type="submit">Add to Cart</button>
+                    </form>
+                    <script>
+                        function addToCart{{$item->id}}(){
+                            elementIdSelect = "{{$selectName}}"
+                            elementIdSize = "{{$id_size}}"
+                            var e = document.getElementById(elementIdSelect);
+                            var cake_size = e.options[e.selectedIndex].value;
+                            {{-- console.log(cake_size) --}}
+                            document.getElementById(elementIdSize).value = cake_size;
+                        }
+                    </script>
                     <button type="button" class="btn btn-sm btn-outline-secondary"> <a href={{$src}} class="nav-link" data-toggle="lightbox"> 
                         View 
                     </a> </button>
@@ -79,11 +113,6 @@
 
 </main>
 @include('inc.footer')
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
     <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 

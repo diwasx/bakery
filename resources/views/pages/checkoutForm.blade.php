@@ -1,34 +1,19 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="/images/checkout.png" alt="" width="72" height="72">
         <h2>Checkout form</h2>
         <p class="lead">Fill your detail and we will contact you as soon as we get your order.</p>
     </div>
-      <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                {{-- <h6 class="my-0">Product name</h6> --}}
-                <h6 class="my-0">{{$item->name}}</h6>
-                {{-- <small class="text-muted">Brief description</small> --}}
-                <small class="text-muted">{{$item->description}}</small>
-              </div>
-              {{-- <span class="text-muted">{{$item->price*100}}</span> --}}
-              <span class="text-muted"><p id="output"></p></span>
-            </li>
-          </ul>
 
-        </div>
+      <div class="row">
 
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Billing address</h4>
-          <form action="/store/{{$item->id}}" method="GET" class="needs-validation" novalidate>
+          {{-- <form action="/store/{{$item->id}}" method="GET" class="needs-validation" novalidate> --}}
+          <form action="/store/" method="GET" class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -56,35 +41,6 @@
                 <div class="invalid-feedback" style="width: 100%;">
                   Your phone number is required.
                 </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="size">Cake size</label>
-              <div class="input-group">
-                <select name="size" id="select-cake">
-                    <?php foreach($sizes as $tmp){ ?>
-                    <option value={{$tmp->sizes}}>{{$tmp->sizes}}</option> 
-                    <?php } ?>
-                </select>
-                  <script type="text/javascript">
-                        var tmp = {{$item->price}}
-                        var e = document.getElementById("select-cake");
-                        var strUser = e.options[e.selectedIndex].value;
-                        document.getElementById('output').innerHTML = tmp*strUser;
-                        var eSelect = document.getElementById('select-cake');
-                        var optOtherReason = document.getElementById('otherdetail');
-                        eSelect.onchange = function() {
-                            {{-- console.log('changed'); --}}
-                            strUser = e.options[e.selectedIndex].value;
-                            document.getElementById('output').innerHTML = tmp*strUser;
-                        }
-                  </script>
-                <p class="card-text">: Pound</p>
-                {{-- <input name="size" type="number" class="form-control" id="size" placeholder="Cake size" required> --}}
-                {{-- <div class="invalid-feedback" style="width: 100%;"> --}}
-                {{--   Cake size is required. --}}
-                {{-- </div> --}}
               </div>
             </div>
 
