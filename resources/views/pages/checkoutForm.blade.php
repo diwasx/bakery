@@ -91,12 +91,8 @@
     </div>
     <br><br>
 @include('inc.footer')
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
         'use strict';
 

@@ -192,12 +192,10 @@ body {
 
                               {{-- Cake size --}}
                               <div class="form-label-group">
-                                <div id="myDIV" class="header">
                                   <h4 style="margin:5px">Cake sizes in pound</h4>
                                   <input type="number" id="myInput" >
                                   <span onclick="newElement()" class="addBtn btn">Add</span>
                                     {{-- <input type="hidden" name="csize[]" value="111" class ="c_size"> --}}
-                                </div>
 
                                 <ul id="myUL">
 

@@ -13,12 +13,10 @@
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
-                  <th>o.id</th>
-                  <th>c.id</th>
+                  <th>Order ID</th>
                   <th>FName</th>
                   <th>LName</th>
                   <th>Phno</th>
-                  <th>Cake size</th>
                   <th>Email</th>
                   <th>Pickup Type</th>
                   <th>Address</th>
@@ -30,19 +28,15 @@
                 @foreach($order as $item)
                 <tr>
                   <td>{{$item->id_order}} </td>
-                  <td>{{$item->id_cake}} </td>
                   <td>{{$item->fname}} </td>
                   <td>{{$item->lname}} </td>
                   <td>{{$item->phone}} </td>
-                  <td>{{$item->size}} </td>
                   <td>{{$item->email}} </td>
                   <td>{{$item->pickupType}} </td>
                   <td>{{$item->address}} </td>
                   <td>{{$item->remark}} </td>
                   <td>{{$item->created_at}} </td>
-                  {{-- <td><button type="button" class="btn btn-success"><a href="/admin/order/success/{{$item->id_order}}" class="btn btn-success">Complete</a></button></td> --}}
-                  {{-- <td><button type="button" class="btn btn-danger"><a href="/admin/order/fail/{{$item->id_order}}" class="btn btn-danger">Failed</a></button></td> --}}
-
+                  <td><a href="/admin/order/showCart/{{$item->id_order}}"><i class="fa fa-shopping-cart" style="font-size:24"></i></a></td>
                 </tr>
 
                 @endforeach

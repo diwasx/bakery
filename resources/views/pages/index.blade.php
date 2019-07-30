@@ -201,7 +201,7 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/blog-img/3.jpg" alt="">
+                                    <img src="img/bg-img/3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">

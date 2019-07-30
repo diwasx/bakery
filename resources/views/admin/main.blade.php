@@ -16,37 +16,34 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>o.id</th>
-              <th>c.id</th>
+              <th>Order ID</th>
               <th>FName</th>
               <th>LName</th>
               <th>Phno</th>
-              <th>Cake size</th>
               <th>Email</th>
               <th>Pickup Type</th>
               <th>Address</th>
               <th>Remark</th>
               <th>Time of order</th>
+              <th>Cart</th>
             </tr>
           </thead>
           <tbody>
             @foreach($order as $item)
             <tr>
               <td>{{$item->id_order}} </td>
-              <td>{{$item->id_cake}} </td>
               <td>{{$item->fname}} </td>
               <td>{{$item->lname}} </td>
               <td>{{$item->phone}} </td>
-              <td>{{$item->size}} </td>
               <td>{{$item->email}} </td>
               <td>{{$item->pickupType}} </td>
               <td>{{$item->address}} </td>
               <td>{{$item->remark}} </td>
               <td>{{$item->created_at}} </td>
-
+              <td><a href="/admin/order/showCart/{{$item->id_order}}"><i class="fa fa-shopping-cart" style="font-size:24"></i></a></td>
               <td>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                    Complete
+                    <i class="fa fa-check" style="font-size:18"></i>
                 </button>
 
                 <!-- Modal -->
@@ -75,7 +72,7 @@
 
                 <td>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">
-                    Failed
+                    <i class="fa fa-close" style="font-size:18"></i>
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -4,11 +4,6 @@
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
 <main role="main">
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
 <div class="container marketing">
 
   <div class="row featurette">
@@ -204,40 +199,18 @@ Open Every Day : 7AM - 6PM
 </main>
 @include('inc.footer')
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
 <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
         
     <script>
-        /*
-===============================================================
-
-Hi! Welcome to my little playground!
-
-My name is Tobias Bogliolo. 'Open source' by default and always 'responsive',
-I'm a publicist, visual designer and frontend developer based in Barcelona. 
-
-Here you will find some of my personal experiments. Sometimes usefull,
-sometimes simply for fun. You are free to use them for whatever you want 
-but I would appreciate an attribution from my work. I hope you enjoy it.
-
-===============================================================
-*/
-
 $(".modal-trigger").click(function(e){
   e.preventDefault();
   dataModal = $(this).attr("data-modal");
   $("#" + dataModal).css({"display":"block"});
-  // $("body").css({"overflow-y": "hidden"}); //Prevent double scrollbar.
 });
 
 $(".close-modal, .modal-sandbox").click(function(){
   $(".modal").css({"display":"none"});
-  // $("body").css({"overflow-y": "auto"}); //Prevent double scrollbar.
 });
     </script>
 @endsection

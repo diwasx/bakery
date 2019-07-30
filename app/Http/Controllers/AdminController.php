@@ -8,6 +8,7 @@ use App\orderFail;
 use App\orderSuccess;
 use App\shop;
 use App\cake_sizes;
+use App\cartSystem;
 use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -52,26 +53,12 @@ class AdminController extends Controller
 
     public function orderSuccess($id_order)
     {
-        /* $order = order::all(); */
-        /* $select = order::where('id','$id') */
-        /*           ->where(...) */
-        /*           ->whereIn(...) */
-        /*           ->select(array('email','moneyOwing')); */
-
-        /* return $id; */
-
-        /* Find() only check for column id; */
-        /* $member = order::find($id_order)->toarray(); */
-
-        /* This method check for custom column for the value */ 
         $member=order::where('id_order', '=', $id_order)->firstOrFail();
         $post = new orderSuccess;
         $post->id_order = $member['id_order'];
-        $post->id_cake = $member['id_cake'];
         $post->fname = $member['fname'];
         $post->lname = $member['lname'];
         $post->phone = $member['phone'];
-        $post->size = $member['size'];
         $post->email = $member['email'];
         $post->pickupType = $member['pickupType'];
         $post->address = $member['address'];
@@ -88,11 +75,9 @@ class AdminController extends Controller
         $member=order::where('id_order', '=', $id_order)->firstOrFail();
         $post = new orderFail;
         $post->id_order = $member['id_order'];
-        $post->id_cake = $member['id_cake'];
         $post->fname = $member['fname'];
         $post->lname = $member['lname'];
         $post->phone = $member['phone'];
-        $post->size = $member['size'];
         $post->email = $member['email'];
         $post->pickupType = $member['pickupType'];
         $post->address = $member['address'];
@@ -145,7 +130,6 @@ class AdminController extends Controller
         $shop->id=$id;
         $shop->name=$request->input('name');
         $shop->price=$request->input('price');
-
         /* dd($request->input('myarray.3')); */
         /* dd($request->input('myarray')); */
         $csizes=$request->input('myarray');
@@ -182,14 +166,12 @@ class AdminController extends Controller
             $image->move($destinationPath, $src);
 
         }
-
             DB::table('shops')
             ->where('id',$id )
             ->update(['name' => $name,
                     'price' => $price,
                     'updated_at' => date('Y-m-d H:i:s'),
                     'description' => $desc]);
-
         /* else{ */
         /*     DB::table('shops') */
         /*     ->where('id',$id ) */
@@ -197,8 +179,6 @@ class AdminController extends Controller
         /*     ->update(['price' => $price]); */
         /*     ->update(['description' => $desc]); */
         /* } */
-        
-
         try{
             $csizes=$request->input('myarray');
             cake_sizes::where('id_cake',$id)->delete();
@@ -226,9 +206,6 @@ class AdminController extends Controller
         $id_cake=$id;
         $sizes=cake_sizes::where('id_cake', '=', $id)->get();
         /* dd($item); */
-
-        /* return view('admin.productEdit')->with('item',$item,$sizes); */
-        /* return view('admin.productEdit')->with(item,sizes); */
         return view('admin.productEdit', compact('item','sizes'));
         
     }
@@ -240,8 +217,14 @@ class AdminController extends Controller
         DB::table('shops')->where('id', '=', $id)->delete();
         DB::table('cake_sizes')->where('id_cake', '=', $id)->delete();
         return redirect('/admin/product')->with('success', 'Successfully deleted product');
-
 \Log::info('This is some useful information.');
-        
+    }
+
+    public function showCart(Request $request, $id){
+        $cart = cartSystem::find($id);
+        $tmp = $cart['data'];
+        $data = json_decode($tmp, true);
+        /* dd($data); */
+        return view('admin.showCart', ['products' => $data['items'], 'totalPrice' => $data['totalPrice']]);
     }
 }

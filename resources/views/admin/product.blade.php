@@ -25,7 +25,7 @@
                         <h5 class="card-title mb-0">{{$item->name}}</h5>
                         <div class="card-text text-black-50">{{$item->description}}</div>
                         <div class="card-text text-black-50">Rs {{$item->price}}</div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="nav-link" href="/admin/product/edit/{{$item->id}}">Edit</a></button>
+                        <button type="button" class="btn btn-outline-secondary"> <a href="/admin/product/edit/{{$item->id}}">Edit</a></button>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_{{$item->id}}">

@@ -36,78 +36,86 @@
     <div class="container">
         <table id="cart" class="table table-hover table-condensed">
         @if(Session::has('cart'))
-                <thead>
-                    <tr>
-                        <th style="width:20%">Product</th>
-                        <th style="width:10%">Size</th>
-                        <th style="width:15%">Price Per Pound</th>
-                        <th style="width:8%">Quantity</th>
-                        <th style="width:22%" class="text-center">Subtotal</th>
-                        <th style="width:10%"></th>
-                    </tr>
-                </thead>
-            @foreach($products as $product)
-            <?php
-                $item=$product['item'];
-                $size=$product['size'];
-                $item_name=$item->name;
-                $item_id=$item->id;
-                $item_desc=$item->description;
-                $item_price="Rs. ".$item->price;
-                $src = 'img_product/'.$item_id.'.jpg';
-                $item_image = $item->image;
-                $src=asset($src)."?".time();
-            ?>
-                <tbody>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-sm-8 hidden-xs"><img src={{$src}} alt="..." class="img-responsive"/></div>
-                                <div class="col-sm-10">
-                                    <h4 class="nomargin">{{$item_name}}</h4>
-                                    {{-- <p>{{$item_desc}}</p> --}}
+            @if($totalPrice != 0)
+                    <thead>
+                        <tr>
+                            <th style="width:20%">Product</th>
+                            <th style="width:10%">Size</th>
+                            <th style="width:15%">Price Per Pound</th>
+                            <th style="width:8%">Quantity</th>
+                            <th style="width:22%" class="text-center">Subtotal</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                @foreach($products as $product)
+                <?php
+                    $item=$product['item'];
+                    $size=$product['size'];
+                    $item_name=$item->name;
+                    $item_id=$item->id;
+                    $item_desc=$item->description;
+                    $item_price="Rs. ".$item->price;
+                    $src = 'img_product/'.$item_id.'.jpg';
+                    $src=asset($src)."?".time();
+
+                    $id_name = $item_id."-".$size
+                ?>
+                    <tbody>
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
+                                    <div class="col-sm-8 hidden-xs"><img src={{$src}} alt="..." class="img-responsive"/></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin">{{$item_name}}</h4>
+                                        {{-- <p>{{$item_desc}}</p> --}}
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">{{$size}}</td>
-                        <td data-th="Size">{{$item_price}}</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value={{$product['qty']}}>
-                        </td>
-                        <td data-th="Subtotal" class="text-center">Rs. {{$product['price']}}</td>
-                        <td class="actions" data-th="">
-                            {{-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> --}}
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
-                        </td>
-                    </tr>
-                </tbody>
-            @endforeach
-                <tfoot>
-                    <tr>
-                        <td><a href="/shop" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                        <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Net Total: Rs. {{$totalPrice}}</strong></td>
-                        <td><a href="/checkoutForm" class="btn btn-success btn-block">Next Step <i class="fa fa-angle-right"></i></a></td>
-                    </tr>
-                </tfoot>
-            </table>
-        @else
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <h2>No Items in Cart</h2>
+                            </td>
+                            <td data-th="Price">{{$size}}</td>
+                            <td data-th="Size">{{$item_price}}</td>
+                                <script>
+                                    function qtyCheck(elem){
+                                        if (elem.value <= 0){
+                                            elem.value = 0;
+                                        }
+                                        if (elem.value >= 20) {
+                                            elem.value = 20; 
+                                        }
+                                    }
+                                </script>
+                            <td data-th="Quantity" class="text-center">
+                                {{$product['qty']}}
+                                <a href="/changeQty/{{$id_name}}/up"><button class="btn btn-danger btn-sm"><i class="fa fa-level-up"></i></button></a>
+                                <a href="/changeQty/{{$id_name}}/down"><button class="btn btn-danger btn-sm"><i class="fa fa-level-down"></i></button></a>
+                            </td>
+                            <td data-th="Subtotal" class="text-center">Rs. {{$product['price']}}</td>
+                            <td class="actions" data-th="">
+                                <a href="/deleteFromCart/{{$id_name}}"><button id={{$id_name}} class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                @endforeach
+                    <tfoot>
+                        <tr>
+                            <td><a href="/shop" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Net Total: Rs. {{$totalPrice}}</strong></td>
+                            <td><a href="/checkoutForm" class="btn btn-success btn-block">Next Step <i class="fa fa-angle-right"></i></a></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            @else
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                    <h2>No Items in Cart</h2>
+                </div>
             </div>
-        </div>
+            @endif
         @endif
     </div>
     </div>
     <br><br>
-@include('inc.footer')
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
         'use strict';
 

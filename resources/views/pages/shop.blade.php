@@ -18,18 +18,14 @@
 <main role="main">
 
   <section class="jumbotron text-center" style="background: scroll center url('/images/bg.jpg')">
-  {{-- <section class="jumbotron text-center grad-color"> --}}
     <div class="container">
-      {{-- <h1 class="jumbotron-heading text-light">Grg Bakery</h1> --}}
       <p class="lead text-info">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
       <p>
         <a href="https://www.instagram.com/grgsbakery/" target="_blank" class="btn btn-primary my-2">Check out instagram for more</a>
-        {{-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> --}}
       </p>
     </div>
   </section>
 
-  {{-- <div class="album py-5 bg-light" style="background-image: linear-gradient(to right top, #eebad7, #f1b0d9, #f2a6db, #f29cdf, #f093e4);"> --}}
   <div class="album py-5 bg-light grad-color" >
     <div class="container grad-color" >
       <div class="row" >
@@ -49,7 +45,6 @@
                 ?>
                 <kbd><p class="text-center text-primary" style="font-size:18px;">{{$item_name}}</p></kbd>
                 <img class="card-img-top" src={{$src}} alt={{$item_name}}/>
-                {{-- <img class="card-img-top" data-src="data:{{$image}}" alt="Card image cap"> --}}
 
             <div class="card-body">
               <p class="card-text" >{{$item_price}} per pound</p>
@@ -66,8 +61,6 @@
 
                   ?>
                 <select  name="size" id={{$selectName}}>
-                {{-- <select class="custom-select mr-sm-2" name="size" id={{$selectName}}> --}}
-                {{-- <select name="size" id={{$selectName}}> --}}
                     @foreach($sizes as $tmp)
                         @if($tmp->id_cake==$item_id)
                             <option value={{$tmp->sizes}}>{{$tmp->sizes}}</option> 

@@ -185,13 +185,11 @@ body {
                               
                               {{-- Cake size --}}
                               <div class="form-label-group">
-                                <div id="myDIV" class="header">
                                   <h4 style="margin:5px">Cake sizes in pound</h4>
-                                  {{-- <p>Cake sizes list</p> --}}
                                   <input type="number" id="myInput" >
+                                  {{-- <input style="height:20%" type="number" id="myInput" > --}}
                                   <span onclick="newElement()" class="addBtn btn">Add</span>
                                     {{-- <input type="hidden" name="csize[]" value="111" class ="c_size"> --}}
-                                </div>
 
                                 <ul id="myUL">
                                   {{-- <li>Hit the gym</li> --}}
@@ -293,7 +291,7 @@ body {
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <span class="btn btn-default btn-file">
-                                                Browse… 
+                                                Browse for Image
                                                 <input name="input_img" type="file" id="imgInp" class="formcontrol" required autofocus>
                                             </span>
                                         </span>
@@ -302,7 +300,7 @@ body {
                                     <img id='img-upload'/>
                                 </div>
                               
-                              <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="finalData()" type="submit">Register</button>
+                              <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="finalData()" type="submit">Add Product</button>
                             </form>
                           </div>
                         </div>

@@ -145,49 +145,10 @@
                </li>
             </ul>
          </section>
-         {{-- <section class="menu-section"> --}}
-         {{-- <section class="menu-section" style="padding:20px;">
-            <div class="menu-section__header">
-               <h2>COOKIES</h2>
-            </div>
-            <ul>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Almond Biscotti</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>2.50</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Chocolate Hazelnut</p>
-                  <p>Gluten Free</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ricotta Chocolate Chip</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ventaglio</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>4</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-                  <p class="menu-item__heading">Ciavattini</p>
-                  <p class="menu-item__details menu-item__details--price"> <strong><span class="menu-item__currency">Rs </span>3.50</strong>
-                  </p>
-               </li>
-               <li class="menu-item">
-               </li>
-            </ul>
-         </section> --}}
       </div>
    </div>
 </div>
 @include('inc.footer')
-<!-- Bootstrap core JavaScript
-   ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
