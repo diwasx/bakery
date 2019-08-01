@@ -186,7 +186,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/admin/pages/home">Home</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="/admin/pages/stories">Stories</a>
                 </div>
           </li>
         </ul>

@@ -10,6 +10,7 @@ use App\shop;
 use App\cake_sizes;
 use App\cartSystem;
 use App\pages_home;
+use App\pages_stories;
 use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -303,6 +304,85 @@ class AdminController extends Controller
     }
 
     public function pageHomeDelete(Request $request,$id)
+    {
+        $file=public_path().'/img_pages_home/'.$id.'.jpg';
+        File::delete($file);
+        DB::table('pages_homes')->where('id', '=', $id)->delete();
+        return redirect('/admin/pages/home')->with('success', 'Successfully deleted item');
+    }
+
+    public function pageStories()
+    {
+        $stories = pages_stories::all();
+        return view('admin.pages_stories')->with('stories',$stories);
+    }
+
+    public function pageStoriesNew()
+    {
+        
+        return view('admin.pages_stories_new');
+    }
+
+    public function pageStoriesStore(Request $request){
+        $stories = new pages_stories;
+
+        $this->validate($request, [ 'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8096', ]);
+
+        if ($request->hasFile('input_img')) {
+            $id = DB::table('pages_stories')->orderBy('id', 'desc')->first();
+            if (is_null($id)){
+                $id=1;
+            }else{
+                $id=$id->id;
+                $id++;
+            }
+            $image = $request->file('input_img');
+            $name = $id.'.jpg';
+            $destinationPath = public_path('img_pages_stories');
+            $image->move($destinationPath, $name);
+        }
+
+        $stories->id=$id;
+        $stories->title=$request->input('title');
+        $stories->description=$request->input('description');
+        $stories->author=$request->input('author');
+        $stories->save();
+        return redirect('/admin/pages/stories')->with('success', 'Successfully added stories');
+    }
+
+    public function pageStoriesEdit(Request $request,$id)
+    {
+        
+        $item=pages_home::find($id);
+        return view('admin.pages_home_edit', compact('item'));
+        
+    }
+
+    public function pageStoriesEditStore(Request $request) {
+        $home=new pages_home;
+        $id=$request->input('id');
+        $title=$request->input('title');
+        $desc=$request->input('description');
+
+        if ($request->hasFile('input_img')) {
+            $this->validate($request, [
+                'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            ]);
+            $image = $request->file('input_img');
+            $src = $id.'.jpg';
+            $destinationPath = public_path('img_pages_home');
+            $image->move($destinationPath, $src);
+
+        }
+        DB::table('pages_homes')
+        ->where('id',$id )
+        ->update(['title' => $title,
+                'description' => $desc]);
+
+        return redirect('/admin/pages/home')->with('success', 'Successfully updated item');
+    }
+
+    public function pageStoriesDelete(Request $request,$id)
     {
         $file=public_path().'/img_pages_home/'.$id.'.jpg';
         File::delete($file);

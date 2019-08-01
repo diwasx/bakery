@@ -9,13 +9,15 @@ use App\Cart;
 use App\order;
 use App\cake_sizes;
 use App\cartSystem;
+use App\pages_home;
 use Session;
 
 class PagesController extends Controller
 {
     public function index(){
         $title= 'Welcome to Bakery';
-        return view('pages.index')->with('title', $title);
+        $home=pages_home::all();
+        return view('pages.index', compact('title','home'));
     }
 
 

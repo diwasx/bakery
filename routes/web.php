@@ -54,6 +54,13 @@ Route::get('/admin/pages/home/edit/{id}', 'AdminController@pageHomeEdit');
 Route::post('/admin/pages/home/editStore', 'AdminController@pageHomeEditStore');
 Route::get('/admin/pages/home/delete/{id}', 'AdminController@pageHomeDelete');
 
+Route::get('/admin/pages/stories', 'AdminController@pageStories');
+Route::get('/admin/pages/stories/new', 'AdminController@pageStoriesNew');
+Route::post('/admin/pages/stories/store', 'AdminController@pageStoriesStore');
+Route::get('/admin/pages/stories/edit/{id}', 'AdminController@pageStoriesEdit');
+Route::post('/admin/pages/stories/editStore', 'AdminController@pageStoriesEditStore');
+Route::get('/admin/pages/stories/delete/{id}', 'AdminController@pageStoriesDelete');
+
 /* For testing */
 Route::get('/test', function(){
     return view('pages.test');

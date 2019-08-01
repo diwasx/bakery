@@ -121,54 +121,26 @@
     <div class="hero-area h-100 mh-100">
         <!-- Hero Slides Area -->
         <div class="hero-slides owl-carousel">
+        @foreach($home as $item)
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b2.jpg);">
+            <?php $src = $item->id.".jpg"; ?>
+            <div class="single-hero-slide bg-img" style="background-image: url(img_pages_home/{{$src}});">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
                                 <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
+                                    <a href="#" data-animation="fadeInUp">{{$item->title}}</a>
                                 </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>{{$item->description}}</a></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b1.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/b3.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href=#>Take a look at last night’s party!</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </div>
-    <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Blog Wrapper Start ##### -->
     <div class="blog-wrapper section-padding-100 clearfix">

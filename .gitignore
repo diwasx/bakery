@@ -1,5 +1,8 @@
 /node_modules
 /vendor
+/public/img_product
+/public/img_pages_home
+/public/img_pages_stories
 .env
 
 .phpunit.result.cache
