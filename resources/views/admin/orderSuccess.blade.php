@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
+@include('inc.messages')
 <div class="container-fluid">
       <div class="row">
-        @extends('inc.navDashboard')
-        @section('table')
-        @include('inc.messages')
+        @include('inc.navDashboard')
         <main role="main" >
         <div class="container">
               <h2 class='text-center font-weight-bold'>SUCCESSFUL ORDER</h2>

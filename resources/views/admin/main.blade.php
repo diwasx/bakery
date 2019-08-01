@@ -1,13 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
-<header>
+@include('inc.messages')
 <div class="container-fluid">
   <div class="row">
-    {{-- @include('inc.navDashboard') --}}
-    @extends('inc.navDashboard')
-    @section('table')
-    @include('inc.messages')
+    @include('inc.navDashboard')
     <main role="main" >
     <div class="container">
           <h2 class='text-center font-weight-bold'>PENDING ORDER</h2>
@@ -107,15 +103,6 @@
     </main>
   </div>
 </div>
-<header>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-
-    <!-- Icons -->
     <script src="{{ asset('js/feather.min.js') }}"></script>
     <script>
       feather.replace()

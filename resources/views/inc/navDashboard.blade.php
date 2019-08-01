@@ -1,7 +1,4 @@
-{{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
-{{-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> --}}
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <style>
 .row{
     margin-left:0px;
@@ -150,7 +147,6 @@
 }
 }
 </style>
-<!------ Include the above in your HEAD tag ---------->
 
 <div id="wrapper" class="active">
       
@@ -158,6 +154,7 @@
         <ul id="sidebar_menu" class="sidebar-nav">
             <li class="sidebar-brand"><a id="menu-toggle" href="#">Toggle<span id="main_icon"></span></a></li>
         </ul>
+
         <ul class="sidebar-nav" id="sidebar">     
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/admin/order" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,9 +177,18 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/admin/product/new">New</a>
                 </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/admin/product" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pages
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/admin/pages/home">Home</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">About</a>
+                </div>
           </li>
-            {{-- <li><a><span class="sub_icon glyphicon glyphicon-link"></span></a></li> --}}
-            {{-- <li><a>link2<span class="sub_icon glyphicon glyphicon-link"></span></a></li> --}}
         </ul>
     </div>
 

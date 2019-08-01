@@ -6,26 +6,22 @@
           @include('inc.navDashboard')
             <!-- Page Content -->
             <div class="container">
-                <br>
+            <br>
+            <a href="/admin/pages/home/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Item</a>
+            <br> <br>
               <div class="row">
-                {{-- Item gallery --}}
-                @foreach($shop as $item)
-                        {{-- $src=asset($src)."?".time(); --}}
-                        {{-- Adding time to image src will force cache refresh --}}
+                @foreach($home as $item)
                     <?php 
-                        $src = 'img_product/'.$item->id.'.jpg'.'?'.time();
-
+                        $src = 'img_pages_home/'.$item->id.'.jpg'.'?'.time();
                     ?>
                 <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card border-0 shadow">
-                    {{-- <h5 class="card-text text-black-50">#{{$item->id}}</div> --}}
                     <h5 class="card-text mb-0 font-weight-bold">#{{$item->id}}</h5>
                     <img src="{{asset($src)}}" class="card-img-top" alt="...">
                     <div class="card-body text-center">
-                        <h5 class="card-title mb-0">{{$item->name}}</h5>
+                        <h5 class="card-title mb-0">{{$item->title}}</h5>
                         <div class="card-text text-black-50">{{$item->description}}</div>
-                        <div class="card-text text-black-50">Rs {{$item->price}}</div>
-                        <button type="button" class="btn btn-outline-secondary"> <a href="/admin/product/edit/{{$item->id}}">Edit</a></button>
+                        <a href="/admin/pages/home/edit/{{$item->id}}"><button type="button" class="btn btn-outline-secondary">Edit</button></a>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_{{$item->id}}">
@@ -46,7 +42,7 @@
                                 Are you sure want to delete? 
                               </div>
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline-danger"><a class="nounderline" href="/admin/product/delete/{{$item->id}}">Delete</a></button>
+                                  <button type="button" class="btn btn-outline-danger"><a class="nounderline" href="/admin/pages/home/delete/{{$item->id}}">Delete</a></button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               </div>
                             </div>
@@ -59,10 +55,8 @@
                 @endforeach
 
               </div>
-              <!-- /.row -->
 
             </div>
-            <!-- /.container -->
 
         </main>
       </div>
