@@ -42,7 +42,7 @@
                                 Are you sure want to delete? 
                               </div>
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline-danger"><a class="nounderline" href="/admin/pages/home/delete/{{$item->id}}">Delete</a></button>
+                                  <a class="nounderline" href="/admin/pages/home/delete/{{$item->id}}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               </div>
                             </div>

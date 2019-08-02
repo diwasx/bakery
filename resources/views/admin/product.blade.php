@@ -25,7 +25,7 @@
                         <h5 class="card-title mb-0">{{$item->name}}</h5>
                         <div class="card-text text-black-50">{{$item->description}}</div>
                         <div class="card-text text-black-50">Rs {{$item->price}}</div>
-                        <button type="button" class="btn btn-outline-secondary"> <a href="/admin/product/edit/{{$item->id}}">Edit</a></button>
+                        <a href="/admin/product/edit/{{$item->id}}"><button type="button" class="btn btn-outline-secondary">Edit</button></a>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_{{$item->id}}">
@@ -46,7 +46,7 @@
                                 Are you sure want to delete? 
                               </div>
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline-danger"><a class="nounderline" href="/admin/product/delete/{{$item->id}}">Delete</a></button>
+                                  <a class="nounderline" href="/admin/product/delete/{{$item->id}}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                               </div>
                             </div>

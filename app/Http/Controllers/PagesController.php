@@ -10,6 +10,7 @@ use App\order;
 use App\cake_sizes;
 use App\cartSystem;
 use App\pages_home;
+use App\pages_stories;
 use Session;
 
 class PagesController extends Controller
@@ -17,7 +18,17 @@ class PagesController extends Controller
     public function index(){
         $title= 'Welcome to Bakery';
         $home=pages_home::all();
-        return view('pages.index', compact('title','home'));
+        /* $stories=pages_stories::all(); */
+        $stories=pages_stories::all()->take(3);
+        return view('pages.index', compact('title','home','stories'));
+    }
+
+    public function indexNum(){
+        $title= 'Welcome to Bakery';
+        $home=pages_home::all();
+        $stories=pages_stories::all();
+        /* $stories=pages_stories::all()->take($num); */
+        return view('pages.index', compact('title','home','stories'));
     }
 
 

@@ -157,7 +157,7 @@
                             {{-- <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p> --}}
 
                             <p style="font-size:19px"> Hello there! Welcome to our grgs bakery page. We have been making cakes since 2016. We do bake cake based on whipping cream and fondants are only used for details. Our main specialty is that we get simple theme cake ready within 20minutes.</p>
-                            <a href="#" class="btn original-btn">Read More</a>
+                            {{-- <a href="#" class="btn original-btn">Read More</a> --}}
                         </div>
                     </div>
                 </div>
@@ -168,51 +168,38 @@
             <div class="row">
                 <div class="col-12 col-lg-9">
 
-                    <!-- Single Blog Area  -->
+                    <!-- Single Blog Area  STORIES-->
+                    @foreach($stories as $item)
+                        <?php 
+                            $src=$item->id.".jpg";
+                        ?>
                     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1000ms">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-thumbnail">
-                                    <img src="img/bg-img/3.jpg" alt="">
+                                    <img src='/img_pages_stories/{{$src}}' alt="">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <!-- Blog Content -->
                                 <div class="single-blog-content">
-                                    <div class="line"></div>
-                                    <h4><a href="#" class="post-headline"> "We sell happiness. It just happens to look like a cupcake." </a></h4>
-                                    <p>We opened our doors in 2016, and that first day we sold out of every baked good by noon. Over the last twenty years, we’ve learned a few things (like how to keep up with demand!), but are honored to still delight some of those very same customers.</p>
+                                    <h4>"{{$item->title}}"</h4>
+                                    <p>{{$item->description}}</p>
                                     <div class="post-meta">
-                                        <p>By <a href="#">Binum Gurung</a></p>
+                                        <p>By {{$item->author}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Single Blog Area  -->
-                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1000ms">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-6">
-                                <div class="single-blog-thumbnail">
-                                    <img src="images/index/shop1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <!-- Blog Content -->
-                                <div class="single-blog-content">
-                                    <div class="line"></div>
-                                    <h4><a href="#" class="post-headline">A team that feels a whole lot like family</a></h4>
-                                    <p>To us, a bakery is everything that’s right with a neighborhood. We love working dough in the early hours of the morning, the satisfyingly straight rows of baguette, and too-adorable-to-eat cupcakes. We love putting smiles on the faces of little ones, prepping for the big meeting with a great breakfast, and giving an excuse to lingering with an old friend. We love every single minute of being your neighborhood bakery.</p>
-                                    <div class="post-meta">
-                                        <p>By <a href="#">Samisa Rana</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
+                    <div class="load-more-btn mt-100 wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1000ms">
+                        <a href="/indexNum" class="btn original-btn">Read More</a>
                     </div>
+                    <br>
+                    <br>
 
-                    <!-- Single Blog Area  -->
+                    <!-- Single Blog Area  PLACE-->
                     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1000ms">
                         <div class="row">
                             <div class="col-12">
@@ -233,7 +220,7 @@
                         </div>
                     </div>
 
-                    <!-- Single Blog Area  -->
+                    <!-- Single Blog Area  TESTOMONIAL-->
                     <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="1000ms">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-6">
@@ -284,9 +271,9 @@
                     </div>
 
                     <!-- Load More -->
-                    <div class="load-more-btn mt-100 wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1000ms">
-                        <a href="#" class="btn original-btn">Read More</a>
-                    </div>
+                    {{-- <div class="load-more-btn mt-100 wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1000ms"> --}}
+                    {{--     <a href="#" class="btn original-btn">Read More</a> --}}
+                    {{-- </div> --}}
                 </div>
 
                 <!-- ##### Sidebar Area ##### -->
@@ -407,14 +394,7 @@
                     <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
                 </div>
             </div>
-
-            <div class="single-insta-feed">
-                <img src="img/instagram-img/10.png" alt="">
-                <!-- Hover Effects -->
-                <div class="hover-effects">
-                    <a href="#" class="d-flex align-items-center justify-content-center"><i class="fa fa-instagram"></i></a>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- ##### Instagram Feed Area End ##### -->

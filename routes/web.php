@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::get('/indexNum/', 'PagesController@indexNum');
 Route::get('/menus', 'PagesController@menus');
 Route::get('/about', 'PagesController@about');
 Route::get('/shop', 'PagesController@shop');

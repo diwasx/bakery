@@ -353,16 +353,17 @@ class AdminController extends Controller
     public function pageStoriesEdit(Request $request,$id)
     {
         
-        $item=pages_home::find($id);
-        return view('admin.pages_home_edit', compact('item'));
+        $item=pages_stories::find($id);
+        return view('admin.pages_stories_edit', compact('item'));
         
     }
 
     public function pageStoriesEditStore(Request $request) {
-        $home=new pages_home;
+        $stories=new pages_stories;
         $id=$request->input('id');
         $title=$request->input('title');
         $desc=$request->input('description');
+        $author=$request->input('author');
 
         if ($request->hasFile('input_img')) {
             $this->validate($request, [
@@ -370,23 +371,24 @@ class AdminController extends Controller
             ]);
             $image = $request->file('input_img');
             $src = $id.'.jpg';
-            $destinationPath = public_path('img_pages_home');
+            $destinationPath = public_path('img_pages_stories');
             $image->move($destinationPath, $src);
 
         }
-        DB::table('pages_homes')
+        DB::table('pages_stories')
         ->where('id',$id )
         ->update(['title' => $title,
-                'description' => $desc]);
+                'description' => $desc,
+                'author' => $author]);
 
-        return redirect('/admin/pages/home')->with('success', 'Successfully updated item');
+        return redirect('/admin/pages/stories')->with('success', 'Successfully updated stories');
     }
 
     public function pageStoriesDelete(Request $request,$id)
     {
-        $file=public_path().'/img_pages_home/'.$id.'.jpg';
+        $file=public_path().'/img_pages_stories/'.$id.'.jpg';
         File::delete($file);
-        DB::table('pages_homes')->where('id', '=', $id)->delete();
-        return redirect('/admin/pages/home')->with('success', 'Successfully deleted item');
+        DB::table('pages_stories')->where('id', '=', $id)->delete();
+        return redirect('/admin/pages/stories')->with('success', 'Successfully deleted item');
     }
 }

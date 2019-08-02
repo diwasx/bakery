@@ -156,7 +156,7 @@ body {
 
               <div class="row">
                 <div class="container">
-                    <a href="/admin/pages/home" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel Edit</a>
+                    <a href="/admin/pages/stories" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel Edit</a>
                     <div class="row">
                       <div >
                         <div class="card card-signin flex-row my-5">
@@ -166,14 +166,14 @@ body {
                               <h5 class="card-title text-center">#{{$item->id}}</h5>
                             <?php
                                 $src=$item->id;
-                                $src='/img_pages_home/'.$src.'.jpg';
+                                $src='/img_pages_stories/'.$src.'.jpg';
 
                             ?>
                             <img src={{$src}} alt="..." class="img-thumbnail">
                             <hr>
 
                             {{-- Form part --}}
-                            <form enctype="multipart/form-data" action="/admin/pages/home/editStore" method="POST" id="my-form" class="form-signin">
+                            <form enctype="multipart/form-data" action="/admin/pages/stories/editStore" method="POST" id="my-form" class="form-signin">
                                 {{ csrf_field() }}
 
                               <div class="form-label-group">
@@ -181,10 +181,14 @@ body {
                                 <label for="title">Title</label>
                               </div>
 
-                              <div class="form-label-group">
-                                <input name='description' value='{{$item->description}}' type="text" id="description" class="form-control" placeholder="Description" required autofocus>
-                                <label for="description">Description</label>
+                            <textarea placeholder='Description' name='description' id="description" class="form-control" rows="5" required autofocus>{{$item->description}}</textarea>
+                            <br>
+
+                            <div class="form-label-group">
+                                <input name='author' type="text" id="author" class="form-control" placeholder="Author" value='{{$item->author}}' required autofocus>
+                                <label for="author">Author</label>
                               </div>
+
                               <hr>
                               <input name='id' value='{{$item->id}}' type="hidden">
                               {{-- Upload image --}}

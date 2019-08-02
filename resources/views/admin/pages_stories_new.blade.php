@@ -166,11 +166,9 @@ body {
                                 <label for="title">Title</label>
                               </div>
 
-                              <div class="form-label-group">
                                 {{-- <input name='description' type="text" id="description" class="form-control" placeholder="Description" required autofocus> --}}
-                                <textarea name='description' id="description" class="form-control" rows="3" required autofocus></textarea>
-                                <label for="description">Description</label>
-                              </div>
+                                <textarea name='description' id="description" class="form-control" rows="5" placeholder="Description" required autofocus></textarea>
+                                {{-- <label for="description">Description</label> --}}
 
                             <div class="form-label-group">
                                 <input name='author' type="text" id="author" class="form-control" placeholder="Author" required autofocus>
