@@ -66,8 +66,10 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link fa fa-shopping-cart" href="/cart"> Shopping Cart
+                        <a class="nav-link" href="/cart">
+                            <span class="fa fa-shopping-cart"> Shopping Cart
                             <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span>
+                            </span>
                         </a>
                     </li>
                     <!-- Authentication Links -->

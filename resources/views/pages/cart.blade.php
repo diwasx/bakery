@@ -111,6 +111,12 @@
                 </div>
             </div>
             @endif
+        @else
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2>No Items in Cart</h2>
+            </div>
+        </div>
         @endif
     </div>
     </div>
