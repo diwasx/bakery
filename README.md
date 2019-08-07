@@ -4,7 +4,7 @@
   <p align="center">
     A web application designed for bakery advertisement, marketing and sale of products.
     <br />
-    <a target="_blank" href="https://grgbakery.000webhostapp.com">View Demo</a>
+    <a target="_blank" href="https://grgsbakery.000webhostapp.com">View Demo</a>
     ·
     <a href="https://github.com/diwasx/bakery/issues">Report Bug</a>
   </p>
@@ -28,7 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![https://grgbakery.000webhostapp.com](storage/shot.jpg)](https://grgbakery.000webhostapp.com)
+[![https://grgsbakery.000webhostapp.com](storage/shot.jpg)](https://grgsbakery.000webhostapp.com)
 
 Everything is being digitized and online on regular basis. This digitization also takes place at competitive market areas where shops and stores are taking their market online. Bakery shops are also one of the popular business in market. Sometimes people can’t directly go to bakery and make their order maybe because of unavailability of time or maybe due to some urgency.
 
