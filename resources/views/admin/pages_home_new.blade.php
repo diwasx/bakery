@@ -208,7 +208,7 @@ body {
       </div>
     </div>
 
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"><\/script>')</script>
 
     <script src="{{ asset('js/feather.min.js') }}"></script>
 
