@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('pickupType');
             $table->string('address',40)->nullable();
             $table->string('remark',80)->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

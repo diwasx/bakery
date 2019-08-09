@@ -35,58 +35,35 @@ class AdminController extends Controller
 
     public function order()
     {
-        $order = order::all();
-        
+        /* $order = order::all(); */
+        $order = DB::table('orders')->where('status', 'pending')->get();
         return view('admin.main')->with('order',$order);
     }
     public function orderS()
     {
-        $order = orderSuccess::all();
-        
+        $order = DB::table('orders')->where('status', 'success')->get();
         return view('admin.orderSuccess')->with('order',$order);
     }
     public function orderF()
     {
-        $order = orderFail::all();
-        
+        $order = DB::table('orders')->where('status', 'fail')->get();
         return view('admin.orderFail')->with('order',$order);
     }
 
 
     public function orderSuccess($id_order)
     {
-        $member=order::where('id_order', '=', $id_order)->firstOrFail();
-        $post = new orderSuccess;
-        $post->id_order = $member['id_order'];
-        $post->fname = $member['fname'];
-        $post->lname = $member['lname'];
-        $post->phone = $member['phone'];
-        $post->email = $member['email'];
-        $post->pickupType = $member['pickupType'];
-        $post->address = $member['address'];
-        $post->remark = $member['remark'];
-        $post->save();
-        
-        $member::where('id_order', '=', $id_order)->delete();
-        /* This is the use of elloquent laravel with the help of model */
+        DB::table('orders')
+            ->where('id_order', $id_order)
+            ->update(['status' => "success"]);
         return redirect('/admin/order')->with('success', 'Order transferred to success');
     }
 
     public function orderFail($id_order)
     {
-        $member=order::where('id_order', '=', $id_order)->firstOrFail();
-        $post = new orderFail;
-        $post->id_order = $member['id_order'];
-        $post->fname = $member['fname'];
-        $post->lname = $member['lname'];
-        $post->phone = $member['phone'];
-        $post->email = $member['email'];
-        $post->pickupType = $member['pickupType'];
-        $post->address = $member['address'];
-        $post->remark = $member['remark'];
-        $post->save();
-        
-        $member::where('id_order', '=', $id_order)->delete();
+        DB::table('orders')
+            ->where('id_order', $id_order)
+            ->update(['status' => "fail"]);
         return redirect('/admin/order')->with('success', 'Order transferred to failed');
         
     }
@@ -94,14 +71,12 @@ class AdminController extends Controller
     public function product()
     {
         $shop = shop::all();
-        
         return view('admin.product')->with('shop',$shop);
     }
 
     public function new()
     {
         $shop = shop::all();
-        
         return view('admin.productNew')->with('shop',$shop);
     }
 
@@ -109,17 +84,13 @@ class AdminController extends Controller
     {
         /* $shop = shop::all(); */
         $shop=new shop;
-
         $this->validate($request, [ 'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8096', ]);
-
         if ($request->hasFile('input_img')) {
             $id = DB::table('shops')->orderBy('id', 'desc')->first();
             /* return $id; */
             if (is_null($id)){
                 $id=1;
-
             }else{
-
                 $id=$id->id;
                 $id++;
             }
@@ -146,7 +117,6 @@ class AdminController extends Controller
         $shop->description=$request->input('description');
         $shop->save();
         return redirect('/admin/product')->with('success', 'Successfully added product');
-        
     }
 
     public function editStore(Request $request)
@@ -380,7 +350,6 @@ class AdminController extends Controller
         ->update(['title' => $title,
                 'description' => $desc,
                 'author' => $author]);
-
         return redirect('/admin/pages/stories')->with('success', 'Successfully updated stories');
     }
 

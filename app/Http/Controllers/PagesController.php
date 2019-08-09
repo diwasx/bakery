@@ -118,6 +118,7 @@ class PagesController extends Controller
             $order->pickupType=$request->input('optradio');
             $order->address=$request->input('address');
             $order->remark=$request->input('remark');
+            $order->status="pending";
             $order->save();
             $this->cartStore();
             return redirect('/shop')->with('success', 'Successfully ordered');
