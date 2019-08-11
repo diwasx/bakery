@@ -110,8 +110,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/admin/order">Dashboard</a>
-
+                                <a class="dropdown-item" href="/admin/order">Orders</a>
+                                <a class="dropdown-item" href="/admin/product">Product</a>
+                                <a class="dropdown-item" href="/admin/pages/stories">Stories</a>
                                 @if (Auth::user()->name == "admin")
                                         <a class="dropdown-item" href="/register">Register Staff</a>
                                 @endif

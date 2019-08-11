@@ -72,7 +72,8 @@ class PagesController extends Controller
         $cart->add($product, $product->id, $size);
 
         $request->session()->put('cart', $cart);
-        return redirect('/shop');
+        $cartAdded=True;
+        return redirect('/shop')->with('success', 'Item added to cart');
     }
 
     public function deleteFromCart(Request $request, $fullId){

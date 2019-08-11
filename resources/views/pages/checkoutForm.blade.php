@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('content')
 
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+</style>
+
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="/images/checkout.png" alt="" width="72" height="72">

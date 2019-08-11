@@ -85,8 +85,8 @@
                                 </script>
                             <td data-th="Quantity" class="text-center">
                                 {{$product['qty']}}
-                                <a href="/changeQty/{{$id_name}}/up"><button class="btn btn-danger btn-sm"><i class="fa fa-level-up"></i></button></a>
-                                <a href="/changeQty/{{$id_name}}/down"><button class="btn btn-danger btn-sm"><i class="fa fa-level-down"></i></button></a>
+                                <a href="/changeQty/{{$id_name}}/up"><button class="btn btn-danger btn-sm"><i class="fa fa-plus"></i></button></a>
+                                <a href="/changeQty/{{$id_name}}/down"><button class="btn btn-danger btn-sm"><i class="fa fa-minus"></i></button></a>
                             </td>
                             <td data-th="Subtotal" class="text-center">Rs. {{$product['price']}}</td>
                             <td class="actions" data-th="">
