@@ -19,7 +19,7 @@
 
   <section class="jumbotron text-center" style="background: scroll center url('/images/bg.jpg')">
     <div class="container">
-      <p class="lead text-info">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
+      <p class="lead" style="color:white">The smell of good bread baking, like the sound of lightly flowing water, is indescribable in its evocation of innocence and delight.</p>
       <p>
         <a href="https://www.instagram.com/grgsbakery/" target="_blank" class="btn btn-primary my-2">Check out instagram for more</a>
       </p>
@@ -43,8 +43,9 @@
                     $item_image = $item->image;
                     $src=asset($src)."?".time();
                 ?>
-                <kbd><p class="text-center text-primary" style="font-size:18px;">{{$item_name}}</p></kbd>
                 <img class="card-img-top" src={{$src}} alt={{$item_name}}/>
+                <kbd><p class="text-center " style="font-size:18px; color:white;">{{$item_name}}</p></kbd>
+                
 
             <div class="card-body">
               <p class="card-text" >{{$item_price}} per pound</p>
